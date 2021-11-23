@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mooday/screens/landing_screen.dart';
 import 'package:mooday/screens/landingafter_screen.dart';
+import 'package:mooday/screens/main_screen.dart';
 import 'package:mooday/screens/register_screen.dart';
 import 'package:mooday/screens/sign_screen.dart';
 import 'package:mooday/assets/constants.dart';
@@ -16,6 +17,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case registerRoute:
         return MaterialPageRoute(builder: (_) => RegisterScreen());
+      case mainRoute:
+        return MaterialPageRoute(builder: (_) => MainScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

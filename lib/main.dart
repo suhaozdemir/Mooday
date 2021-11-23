@@ -14,7 +14,7 @@ class Mooday extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       onGenerateRoute: AppRouter.generateRoute,
-      initialRoute: landingRoute,
+      initialRoute: mainRoute,
     );
   }
 }

@@ -5,6 +5,7 @@ const String landingRoute = '/';
 const String landingAfterRoute = '/lafter';
 const String registerRoute = '/register';
 const String loginRoute = '/login';
+const String mainRoute = '/main';
 
 const String ktitleText = '/mooday;';
 const ktitleStyle =
