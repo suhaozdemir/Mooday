@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/widgets/round_button.dart';
 import 'package:mooday/widgets/floating_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -12,6 +13,10 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  FirebaseAuth auth = FirebaseAuth.instance;
+  late String email;
+  late String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,28 +34,45 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: Column(
               children: [
                 TextFormField(
+                  onChanged: (value) {
+                    email = value;
+                  },
                   keyboardType: TextInputType.emailAddress,
                   textAlign: TextAlign.center,
                   decoration: kTextFileDecoration,
                 ),
                 const SizedBox(height: 10.0),
                 TextFormField(
-                    obscureText: true,
-                    textAlign: TextAlign.center,
-                    decoration: kTextFileDecoration.copyWith(
-                        hintText: 'Enter your password')),
+                  onChanged: (value) {
+                    password = value;
+                  },
+                  obscureText: true,
+                  textAlign: TextAlign.center,
+                  decoration: kTextFileDecoration.copyWith(
+                      hintText: 'Enter your password'),
+                ),
               ],
             ),
           ),
           Hero(
             tag: 'hero-button',
             child: RoundButton(
-                color: Colors.black,
-                textColor: Colors.white,
-                title: 'Register',
-                onPressed: () {
-                  Navigator.pushNamed(context, loginRoute);
-                }),
+              color: Colors.black,
+              textColor: Colors.white,
+              title: 'Register',
+              onPressed: () async {
+                try {
+                  UserCredential userCredential = await FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                          email: email, password: password);
+                  if (userCredential != null) {
+                    Navigator.pushNamed(context, landingRoute);
+                  }
+                } catch (e) {
+                  print(e);
+                }
+              },
+            ),
           ),
         ],
       ),

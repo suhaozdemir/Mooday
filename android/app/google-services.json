@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "555206656935",
+    "project_id": "mooday-ed517",
+    "storage_bucket": "mooday-ed517.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555206656935:android:fd1dcc76e1c417f4776c82",
+        "android_client_info": {
+          "package_name": "com.suhaozdemir.mooday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555206656935-r28aj6nrdt4d8brhcr2mgsguf01opm8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYrWbHRDLx2H1diKPpyEta2TRRnEQS1iQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555206656935-r28aj6nrdt4d8brhcr2mgsguf01opm8s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
