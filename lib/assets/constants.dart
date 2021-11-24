@@ -8,8 +8,11 @@ const String loginRoute = '/login';
 const String mainRoute = '/main';
 
 const String ktitleText = '/mooday;';
-const ktitleStyle =
-    TextStyle(fontSize: 25.0, fontFamily: 'Oswald', color: Colors.black);
+const ktitleStyle = TextStyle(
+    fontSize: 30.0,
+    fontFamily: 'ComingSoon',
+    color: Colors.black,
+    fontWeight: FontWeight.bold);
 
 const String ksubtitleText = 'Track your day.';
 const ksubtitleStyle = TextStyle(

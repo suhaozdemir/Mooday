@@ -80,6 +80,13 @@ flutter:
      - family: Oswald
        fonts:
          - asset: assets/fonts/Oswald-Bold.ttf
+     - family: ComingSoon
+       fonts:
+         - asset: assets/fonts/ComingSoon-Regular.ttf
+     - family: Quantico
+       fonts:
+         - asset: assets/fonts/Quantico-Bold.ttf
+         - asset: assets/fonts/Quantico-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
