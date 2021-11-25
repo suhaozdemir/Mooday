@@ -5,12 +5,12 @@ const String landingRoute = '/';
 const String landingAfterRoute = '/lafter';
 const String registerRoute = '/register';
 const String loginRoute = '/login';
-const String mainRoute = '/main';
+const String homeRoute = '/home';
 
 const String ktitleText = '/mooday;';
 const ktitleStyle = TextStyle(
     fontSize: 30.0,
-    fontFamily: 'ComingSoon',
+    fontFamily: 'Oswald',
     color: Colors.black,
     fontWeight: FontWeight.bold);
 
