@@ -20,12 +20,12 @@ void main() async {
 class Mooday extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       // useInheritedMediaQuery: true, // Set to true
       // locale: DevicePreview.locale(context),
       // home: HomeScreen(),
       onGenerateRoute: AppRouter.generateRoute,
-      initialRoute: homeRoute,
+      initialRoute: loginRoute,
     );
   }
 }
