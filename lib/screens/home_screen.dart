@@ -36,7 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.only(top: 120.0, left: 20.0, right: 20.0),
+              padding: EdgeInsets.only(
+                  top: 120.0, left: 20.0, right: 20.0, bottom: 10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -60,8 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           categoryText: 'Happy!',
                         ),
                         CategoryCard(
-                            assetImg: 'assets/images/hello.png',
-                            categoryText: 'Test'),
+                            assetImg: 'assets/images/peep-73.png',
+                            categoryText: 'Happy!'),
                         CategoryCard(
                           assetImg: 'assets/images/peep-73.png',
                           categoryText: 'Happy!',
@@ -73,7 +74,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  Text('Test')
+                  Container(
+                    width: double.infinity,
+                    height: 142.0,
+                    decoration: BoxDecoration(
+                      color: Color(0XFFF2F1F6),
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Column(
+                      children: [
+                        Expanded(
+                            child: Image.asset('assets/images/peep-73.png'))
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -64,10 +64,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       .signInWithEmailAndPassword(
                           email: email, password: password);
                   if (userCredential != null) {
-                    Navigator.pushNamed(context, landingRoute);
+                    ScaffoldMessenger.of(context).showSnackBar(ksnackSuccess);
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, homeRoute);
                   }
                 } catch (e) {
-                  print(e);
+                  ScaffoldMessenger.of(context).showSnackBar(ksnackError);
                 }
               },
             ),

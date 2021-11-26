@@ -36,3 +36,6 @@ const kTextFileDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
 );
+
+const ksnackSuccess = SnackBar(content: Text('Login Successfull!'));
+const ksnackError = SnackBar(content: Text('Wrong email or password!'));

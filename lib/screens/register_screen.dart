@@ -66,10 +66,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       .createUserWithEmailAndPassword(
                           email: email, password: password);
                   if (userCredential != null) {
-                    Navigator.pushNamed(context, landingRoute);
+                    ScaffoldMessenger.of(context).showSnackBar(ksnackSuccess);
+                    Navigator.pushNamed(context, homeRoute);
                   }
                 } catch (e) {
-                  print(e);
+                  ScaffoldMessenger.of(context).showSnackBar(ksnackError);
                 }
               },
             ),
