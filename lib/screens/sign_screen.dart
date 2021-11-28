@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/widgets/round_button.dart';
 import 'package:mooday/widgets/floating_button.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mooday/services/auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -12,10 +12,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  FirebaseAuth auth = FirebaseAuth.instance;
-
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -57,11 +57,10 @@ class _LoginScreenState extends State<LoginScreen> {
               title: 'Login',
               onPressed: () async {
                 try {
-                  UserCredential userCredential = await FirebaseAuth.instance
-                      .signInWithEmailAndPassword(
-                          email: _emailController.text,
-                          password: _passwordController.text);
-                  if (userCredential != null) {
+                  var user = await _authService.signIn(
+                      _emailController.text, _passwordController.text);
+
+                  if (user != null) {
                     ScaffoldMessenger.of(context).showSnackBar(ksnackSuccess);
                     Navigator.pop(context);
                     Navigator.pushNamed(context, homeRoute);
@@ -82,5 +81,12 @@ class _LoginScreenState extends State<LoginScreen> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 }

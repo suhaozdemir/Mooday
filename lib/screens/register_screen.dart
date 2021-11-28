@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/widgets/round_button.dart';
 import 'package:mooday/widgets/floating_button.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mooday/services/auth.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -13,9 +13,10 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  FirebaseAuth auth = FirebaseAuth.instance;
-  late String email;
-  late String password;
+  AuthService _authService = AuthService();
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,18 +35,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: Column(
               children: [
                 TextFormField(
-                  onChanged: (value) {
-                    email = value;
-                  },
+                  controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   textAlign: TextAlign.center,
                   decoration: kTextFileDecoration,
                 ),
                 const SizedBox(height: 10.0),
                 TextFormField(
-                  onChanged: (value) {
-                    password = value;
-                  },
+                  controller: _passwordController,
                   obscureText: true,
                   textAlign: TextAlign.center,
                   decoration: kTextFileDecoration.copyWith(
@@ -62,10 +59,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               title: 'Register',
               onPressed: () async {
                 try {
-                  UserCredential userCredential = await FirebaseAuth.instance
-                      .createUserWithEmailAndPassword(
-                          email: email, password: password);
-                  if (userCredential != null) {
+                  var user = await _authService.createUser(
+                      _emailController.text, _passwordController.text);
+                  if (user != null) {
                     ScaffoldMessenger.of(context).showSnackBar(ksnackSuccess);
                     Navigator.pushNamed(context, homeRoute);
                   }
@@ -85,5 +81,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 }
