@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/widgets/category_card.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,11 +16,21 @@ class _HomeScreenState extends State<HomeScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
+      bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.grey,
+          items: <Widget>[
+            Icon(Icons.add, size: 30),
+            Icon(Icons.list, size: 30),
+            Icon(Icons.compare_arrows, size: 30),
+          ],
+          onTap: (index) {
+            //Handle button tap
+          }),
       body: Stack(
         children: [
           Container(
             height: size.height * .27, //%27 boyut
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               image: DecorationImage(
                 scale: 0.1,
@@ -27,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: AssetImage('assets/images/homebg.png'),
               ),
             ),
-            child: Center(
+            child: const Center(
               child: Text(
                 ktitleText,
                 style: ktitleStyle,
@@ -36,10 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                   top: 120.0, left: 20.0, right: 20.0, bottom: 10.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
                     'Welcome Jerry,',
@@ -52,42 +63,31 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 2,
-                      childAspectRatio: .85,
+                      childAspectRatio: .95,
                       crossAxisSpacing: 20,
-                      mainAxisSpacing: 10,
+                      mainAxisSpacing: 12,
                       children: [
                         CategoryCard(
-                          assetImg: 'assets/images/peep-73.png',
-                          categoryText: 'Happy!',
+                          assetImg: 'assets/images/mood.png',
+                          categoryText: 'Mood',
                         ),
                         CategoryCard(
-                            assetImg: 'assets/images/peep-73.png',
-                            categoryText: 'Happy!'),
+                            assetImg: 'assets/images/todo.png',
+                            categoryText: 'To-Do'),
                         CategoryCard(
-                          assetImg: 'assets/images/peep-73.png',
-                          categoryText: 'Happy!',
+                          assetImg: 'assets/images/timer.png',
+                          categoryText: 'Timer',
                         ),
                         CategoryCard(
-                          assetImg: 'assets/images/peep-73.png',
-                          categoryText: 'Happy!',
+                          assetImg: 'assets/images/finance.png',
+                          categoryText: 'Finance',
                         ),
                       ],
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 142.0,
-                    decoration: BoxDecoration(
-                      color: Color(0XFFF2F1F6),
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Column(
-                      children: [
-                        Expanded(
-                            child: Image.asset('assets/images/peep-73.png'))
-                      ],
-                    ),
-                  ),
+                  CategoryCard(
+                      assetImg: 'assets/images/weather.png',
+                      categoryText: 'Weather')
                 ],
               ),
             ),

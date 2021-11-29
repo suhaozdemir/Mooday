@@ -10,15 +10,20 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0XFFF2F1F6),
+        boxShadow: [
+          BoxShadow(color: Colors.grey, blurRadius: 4, offset: Offset(0, 5))
+        ], // Shadow position
+        gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0XFFF2F1F6), Color(0xffeef2f3)]),
         borderRadius: BorderRadius.circular(13.0),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            child: Image.asset(
-              assetImg,
-            ),
+          Image.asset(
+            assetImg,
           ),
           Text(
             categoryText,
