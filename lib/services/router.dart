@@ -4,7 +4,9 @@ import 'package:mooday/screens/landingafter_screen.dart';
 import 'package:mooday/screens/home_screen.dart';
 import 'package:mooday/screens/register_screen.dart';
 import 'package:mooday/screens/sign_screen.dart';
+import 'package:mooday/screens/mood/mood_screen.dart';
 import 'package:mooday/assets/constants.dart';
+import 'package:mooday/screens/timer/timer_screen.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -19,6 +21,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => RegisterScreen());
       case homeRoute:
         return MaterialPageRoute(builder: (_) => HomeScreen());
+      case moodRoute:
+        return MaterialPageRoute(builder: (_) => MoodScreen());
+      case timerRoute:
+        return MaterialPageRoute(builder: (_) => TimerScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

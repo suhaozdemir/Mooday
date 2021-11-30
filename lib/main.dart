@@ -9,8 +9,7 @@ import 'package:device_preview/device_preview.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(
-      // DevicePreview(
+  runApp(//DevicePreview(
       //   builder: (context) => Mooday(), // Wrap your app
       //   enabled: !kReleaseMode,
       // ));
@@ -20,7 +19,7 @@ void main() async {
 class Mooday extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       // useInheritedMediaQuery: true, // Set to true
       // locale: DevicePreview.locale(context),
       // home: HomeScreen(),

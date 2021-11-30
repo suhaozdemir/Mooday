@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/widgets/category_card.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,16 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: CurvedNavigationBar(
-          backgroundColor: Colors.grey,
-          items: <Widget>[
-            Icon(Icons.add, size: 30),
-            Icon(Icons.list, size: 30),
-            Icon(Icons.compare_arrows, size: 30),
-          ],
-          onTap: (index) {
-            //Handle button tap
-          }),
       body: Stack(
         children: [
           Container(
@@ -47,47 +36,69 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(
-                  top: 120.0, left: 20.0, right: 20.0, bottom: 10.0),
+              padding: EdgeInsets.only(
+                  top: size.height * 0.15,
+                  left: 20.0,
+                  right: 20.0,
+                  bottom: 0.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'Welcome Jerry,',
+                    'Welcome,',
                     style: ksubtitleStyle2.copyWith(fontSize: 22.0),
                   ),
                   Text(
-                    'How are you feeling today?',
+                    'What do you want to do?',
                     style: ksubtitleStyle.copyWith(fontSize: 25.0),
                   ),
+                  SizedBox(height: size.height * 0.02),
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 2,
-                      childAspectRatio: .95,
+                      childAspectRatio: 1,
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 12,
                       children: [
                         CategoryCard(
-                          assetImg: 'assets/images/mood.png',
-                          categoryText: 'Mood',
-                        ),
+                            assetImg: 'assets/images/mood.png',
+                            categoryText: 'Mood',
+                            onTap: () {
+                              Navigator.pushNamed(context, moodRoute);
+                            }),
                         CategoryCard(
                             assetImg: 'assets/images/todo.png',
-                            categoryText: 'To-Do'),
+                            categoryText: 'To-Do',
+                            onTap: () {
+                              Navigator.pushNamed(context, homeRoute);
+                            }),
                         CategoryCard(
-                          assetImg: 'assets/images/timer.png',
-                          categoryText: 'Timer',
-                        ),
+                            assetImg: 'assets/images/timer.png',
+                            categoryText: 'Timer',
+                            onTap: () {
+                              Navigator.pushNamed(context, timerRoute);
+                            }),
                         CategoryCard(
-                          assetImg: 'assets/images/finance.png',
-                          categoryText: 'Finance',
-                        ),
+                            assetImg: 'assets/images/finance.png',
+                            categoryText: 'Finance',
+                            onTap: () {
+                              Navigator.pushNamed(context, homeRoute);
+                            }),
+                        CategoryCard(
+                            assetImg: 'assets/images/weather.png',
+                            categoryText: 'Weather',
+                            onTap: () {
+                              Navigator.pushNamed(context, homeRoute);
+                            }),
+                        CategoryCard(
+                            assetImg: 'assets/images/finance.png',
+                            categoryText: 'Finance',
+                            onTap: () {
+                              Navigator.pushNamed(context, homeRoute);
+                            }),
                       ],
                     ),
                   ),
-                  CategoryCard(
-                      assetImg: 'assets/images/weather.png',
-                      categoryText: 'Weather')
                 ],
               ),
             ),

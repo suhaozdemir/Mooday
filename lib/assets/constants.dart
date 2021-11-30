@@ -6,6 +6,8 @@ const String landingAfterRoute = '/lafter';
 const String registerRoute = '/register';
 const String loginRoute = '/login';
 const String homeRoute = '/home';
+const String moodRoute = '/mood';
+const String timerRoute = '/timer';
 
 const String ktitleText = '/mooday;';
 const ktitleStyle = TextStyle(
