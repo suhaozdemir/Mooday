@@ -10,9 +10,13 @@ class MoodIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextButton(onPressed: onTap, child: Image.asset(moodImg)),
+        TextButton(
+            onPressed: onTap,
+            child: Image.asset(
+              moodImg,
+              scale: 1.2,
+            )),
         Text(title),
       ],
     );

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/screens/home_screen.dart';
+import 'package:mooday/screens/mood/mood_screen.dart';
 import 'services/router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:device_preview/device_preview.dart';
@@ -22,7 +23,7 @@ class Mooday extends StatelessWidget {
     return MaterialApp(
       // useInheritedMediaQuery: true, // Set to true
       // locale: DevicePreview.locale(context),
-      // home: HomeScreen(),
+      // home: MoodScreen(),
       onGenerateRoute: AppRouter.generateRoute,
       initialRoute: moodRoute,
     );
