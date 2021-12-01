@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:mooday/widgets/floating_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -15,11 +16,10 @@ class _LandingScreenState extends State<LandingScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation animation;
-
+  FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   void initState() {
     super.initState();
-
     controller =
         AnimationController(vsync: this, duration: Duration(seconds: 2));
 
@@ -84,6 +84,9 @@ class _LandingScreenState extends State<LandingScreen>
         title: 'Start',
         onPressed: () {
           Navigator.pushNamed(context, landingAfterRoute);
+          if (_auth.currentUser != null) {
+            Navigator.pushNamed(context, homeRoute);
+          }
         },
       ),
     );

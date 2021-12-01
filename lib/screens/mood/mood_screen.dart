@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mooday/screens/mood/localwidgets/mood_icons.dart';
 import 'package:mooday/screens/mood/localwidgets/datetime_picker.dart';
+import 'package:mooday/widgets/floating_button.dart';
 import 'package:mooday/assets/constants.dart';
 
 class MoodScreen extends StatefulWidget {
@@ -76,6 +77,13 @@ class _MoodScreenState extends State<MoodScreen> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingButton(
+        scale: 1.2,
+        title: 'Back',
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
     );
   }
