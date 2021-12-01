@@ -26,6 +26,8 @@ class CategoryCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(13.0),
         ),
         child: Material(
+          color: Colors.white,
+          elevation: 100.0,
           child: InkWell(
             onTap: onTap,
             child: Column(
