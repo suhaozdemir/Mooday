@@ -3,6 +3,8 @@ import 'package:mooday/screens/mood/localwidgets/mood_icons.dart';
 import 'package:mooday/screens/mood/localwidgets/datetime_picker.dart';
 import 'package:mooday/widgets/floating_button.dart';
 import 'package:mooday/assets/constants.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MoodScreen extends StatefulWidget {
   @override
@@ -12,6 +14,8 @@ class MoodScreen extends StatefulWidget {
 class _MoodScreenState extends State<MoodScreen> {
   late DateTime pickedDate;
   late TimeOfDay pickedTime;
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   @override
   void initState() {
@@ -22,6 +26,18 @@ class _MoodScreenState extends State<MoodScreen> {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference moods = firestore.collection(_auth.currentUser!.uid);
+    Future<void> addMood() {
+      // Call the user's CollectionReference to add a new user
+      return moods
+          .add({
+            'date': FieldValue.serverTimestamp(), // John Doe
+            'time': pickedTime.hour, // Stokes and Sons2
+          })
+          .then((value) => print("User Added"))
+          .catchError((error) => print("Failed to add user: $error"));
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -55,7 +71,9 @@ class _MoodScreenState extends State<MoodScreen> {
                 MoodIcons(
                   title: 'Happy',
                   moodImg: 'assets/images/moods/mood.png',
-                  onTap: () {},
+                  onTap: () {
+                    addMood();
+                  },
                 ),
                 MoodIcons(
                     title: 'Good',
