@@ -42,3 +42,5 @@ const kTextFileDecoration = InputDecoration(
 
 const ksnackSuccess = SnackBar(content: Text('Login Successfull!'));
 const ksnackError = SnackBar(content: Text('Wrong email or password!'));
+
+const ktheme2color = Color(0XFFF2F1F6);
