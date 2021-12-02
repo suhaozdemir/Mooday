@@ -5,6 +5,7 @@ import 'package:mooday/widgets/floating_button.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:intl/intl.dart';
 
 class MoodScreen extends StatefulWidget {
   @override
@@ -14,8 +15,8 @@ class MoodScreen extends StatefulWidget {
 class _MoodScreenState extends State<MoodScreen> {
   late DateTime pickedDate;
   late TimeOfDay pickedTime;
-  FirebaseAuth _auth = FirebaseAuth.instance;
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
   void initState() {
@@ -26,17 +27,19 @@ class _MoodScreenState extends State<MoodScreen> {
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference moods = firestore.collection(_auth.currentUser!.uid);
-    Future<void> addMood() {
-      // Call the user's CollectionReference to add a new user
-      return moods
-          .add({
-            'date': FieldValue.serverTimestamp(), // John Doe
-            'time': pickedTime.hour, // Stokes and Sons2
-          })
-          .then((value) => print("User Added"))
-          .catchError((error) => print("Failed to add user: $error"));
-    }
+    // CollectionReference moods = _firestore.collection('moods');
+    // Future<void> addMood() {
+    //   return moods
+    //       .doc(_auth.currentUser!.uid)
+    //       .set({
+    //         'sender': {
+    //           'date': DateFormat.yMMMd().format(pickedDate),
+    //           'time': pickedTime.format(context)
+    //         }
+    //       })
+    //       .then((value) => print("User Added"))
+    //       .catchError((error) => print("Failed to add user: $error"));
+    // }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -72,7 +75,7 @@ class _MoodScreenState extends State<MoodScreen> {
                   title: 'Happy',
                   moodImg: 'assets/images/moods/mood.png',
                   onTap: () {
-                    addMood();
+                    //addMood();
                   },
                 ),
                 MoodIcons(

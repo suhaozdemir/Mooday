@@ -7,6 +7,7 @@ import 'package:mooday/screens/sign_screen.dart';
 import 'package:mooday/screens/mood/mood_screen.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/screens/timer/timer_screen.dart';
+import 'package:mooday/screens/todo/todo_screen.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -25,6 +26,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => MoodScreen());
       case timerRoute:
         return MaterialPageRoute(builder: (_) => TimerScreen());
+      case todoRoute:
+        return MaterialPageRoute(builder: (_) => TodoScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             assetImg: 'assets/images/todo.png',
                             categoryText: 'To-Do',
                             onTap: () {
-                              Navigator.pushNamed(context, homeRoute);
+                              Navigator.pushNamed(context, todoRoute);
                             }),
                         CategoryCard(
                             assetImg: 'assets/images/timer.png',

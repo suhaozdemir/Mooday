@@ -8,6 +8,7 @@ const String loginRoute = '/login';
 const String homeRoute = '/home';
 const String moodRoute = '/mood';
 const String timerRoute = '/timer';
+const String todoRoute = '/todo';
 
 const String ktitleText = '/mooday;';
 const ktitleStyle = TextStyle(
