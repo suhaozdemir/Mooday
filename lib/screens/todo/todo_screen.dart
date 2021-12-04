@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mooday/screens/todo/localwidgets/todo_tile.dart';
 import 'package:mooday/widgets/floating_button.dart';
 import 'package:mooday/assets/constants.dart';
+import 'package:mooday/screens/todo/add_task_screen.dart';
 
 class TodoScreen extends StatelessWidget {
   const TodoScreen({Key? key}) : super(key: key);
@@ -40,6 +41,16 @@ class TodoScreen extends StatelessWidget {
                     isChecked: false,
                     checkboxCallback: (checkboxState) {},
                   ),
+                  TodoTile(
+                    taskTitle: 'Deneme',
+                    isChecked: false,
+                    checkboxCallback: (checkboxState) {},
+                  ),
+                  TodoTile(
+                    taskTitle: 'Deneme',
+                    isChecked: false,
+                    checkboxCallback: (checkboxState) {},
+                  ),
                 ],
               ),
             ),
@@ -49,7 +60,12 @@ class TodoScreen extends StatelessWidget {
       floatingActionButton: FloatingButton(
         scale: 1.2,
         title: 'Add',
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) => AddTaskScreen(),
+          );
+        },
       ),
     );
   }
