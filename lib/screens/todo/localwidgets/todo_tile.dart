@@ -6,16 +6,19 @@ class TodoTile extends StatelessWidget {
     required this.taskTitle,
     required this.isChecked,
     required this.checkboxCallback,
+    required this.longPressCallback,
   });
 
   final String taskTitle;
   final bool isChecked;
+  final VoidCallback longPressCallback;
   final void Function(bool?) checkboxCallback;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: ListTile(
+        onLongPress: longPressCallback,
         title: Text(
           taskTitle,
           style: TextStyle(
@@ -23,7 +26,8 @@ class TodoTile extends StatelessWidget {
           ),
         ),
         trailing: Checkbox(
-          onChanged: null,
+          activeColor: Colors.black,
+          onChanged: checkboxCallback,
           value: isChecked,
         ),
       ),

@@ -6,15 +6,23 @@ import 'package:provider/provider.dart';
 class TodoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return TodoTile(
-          taskTitle: Provider.of<TaskData>(context).tasks[index].name,
-          isChecked: Provider.of<TaskData>(context).tasks[index].isDone,
-          checkboxCallback: (c) {},
-        );
-      },
-      itemCount: Provider.of<TaskData>(context).tasksLength,
-    );
+    return Consumer<TaskData>(builder: (context, taskData, child) {
+      return ListView.builder(
+        itemBuilder: (context, index) {
+          final task = taskData.tasks[index];
+          return TodoTile(
+            taskTitle: task.name,
+            isChecked: task.isDone,
+            checkboxCallback: (checkboxCallback) {
+              taskData.toggleTask(task);
+            },
+            longPressCallback: () {
+              taskData.removeTask(task);
+            },
+          );
+        },
+        itemCount: taskData.tasksLength,
+      );
+    });
   }
 }

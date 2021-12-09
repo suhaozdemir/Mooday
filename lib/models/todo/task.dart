@@ -5,6 +5,6 @@ class Task {
   final String name;
 
   void toggleDone() {
-    isDone != isDone;
+    isDone = !isDone;
   }
 }

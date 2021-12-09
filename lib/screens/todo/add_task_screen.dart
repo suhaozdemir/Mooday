@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:mooday/models/todo/task_data.dart';
 
 class AddTaskScreen extends StatefulWidget {
   @override
@@ -8,7 +10,7 @@ class AddTaskScreen extends StatefulWidget {
 class _AddTaskScreenState extends State<AddTaskScreen> {
   @override
   Widget build(BuildContext context) {
-    late String newTaskTitle;
+    final TextEditingController newTaskTitle = TextEditingController();
 
     return Container(
       color: const Color(0xff757575),
@@ -35,12 +37,12 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             TextField(
               autofocus: true,
               textAlign: TextAlign.center,
-              onChanged: (value) {
-                newTaskTitle = value;
-              },
+              controller: newTaskTitle,
             ),
             TextButton(
               onPressed: () {
+                Provider.of<TaskData>(context, listen: false)
+                    .addTask(newTaskTitle.text);
                 Navigator.pop(context);
               },
               child: Text('Add'),

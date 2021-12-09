@@ -1,12 +1,31 @@
 import 'package:flutter/foundation.dart';
 import 'package:mooday/models/todo/task.dart';
+import 'dart:collection';
 
 class TaskData extends ChangeNotifier {
-  List<Task> tasks = [
+  final List<Task> _tasks = [
     Task(name: 'Task 1'),
     Task(name: 'Task 2'),
     Task(name: 'Task 3')
   ];
 
-  int get tasksLength => tasks.length;
+  UnmodifiableListView<Task> get tasks => UnmodifiableListView(_tasks);
+
+  int get tasksLength => _tasks.length;
+
+  void toggleTask(Task task) {
+    task.toggleDone();
+    notifyListeners();
+  }
+
+  void addTask(String newTaskTitle) {
+    final task = Task(name: newTaskTitle);
+    _tasks.add(task);
+    notifyListeners();
+  }
+
+  void removeTask(Task task) {
+    _tasks.remove(task);
+    notifyListeners();
+  }
 }
