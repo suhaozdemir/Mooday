@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mooday/screens/todo/localwidgets/todo_tile.dart';
 import 'package:mooday/widgets/floating_button.dart';
 import 'package:mooday/assets/constants.dart';
+import 'package:mooday/screens/todo/localwidgets/todo_list.dart';
 import 'package:mooday/screens/todo/add_task_screen.dart';
 
 class TodoScreen extends StatelessWidget {
@@ -34,25 +35,7 @@ class TodoScreen extends StatelessWidget {
                     topRight: Radius.circular(30.0),
                     topLeft: Radius.circular(30.0)),
               ),
-              child: ListView(
-                children: [
-                  TodoTile(
-                    taskTitle: 'Deneme',
-                    isChecked: false,
-                    checkboxCallback: (checkboxState) {},
-                  ),
-                  TodoTile(
-                    taskTitle: 'Deneme',
-                    isChecked: false,
-                    checkboxCallback: (checkboxState) {},
-                  ),
-                  TodoTile(
-                    taskTitle: 'Deneme',
-                    isChecked: false,
-                    checkboxCallback: (checkboxState) {},
-                  ),
-                ],
-              ),
+              child: TodoList(),
             ),
           )
         ],
