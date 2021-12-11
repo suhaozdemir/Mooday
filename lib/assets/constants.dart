@@ -9,6 +9,7 @@ const String homeRoute = '/home';
 const String moodRoute = '/mood';
 const String timerRoute = '/timer';
 const String todoRoute = '/todo';
+const String weatherRoute = '/weather';
 
 const String ktitleText = '/mooday;';
 const ktitleStyle = TextStyle(
