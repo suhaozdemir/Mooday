@@ -1,6 +1,7 @@
-# mooday
+# Mooday (In-Progress)
 
-Mooday is a daily planner app.
+Mooday is my Graduation Project.
+It is a daily tracker app which you can share your moods and track them. Also you can take notes, make to-do lists, check the weather and track your money.
 
 ## Getting Started
 
