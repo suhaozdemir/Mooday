@@ -23,8 +23,8 @@ class _LandingAfterScreenState extends State<LandingAfterScreen> {
             Hero(
               tag: 'hero-title',
               child: Text(
-                ktitleText,
-                style: ktitleStyle.copyWith(fontSize: 40.0),
+                TEXT_TITLE,
+                style: STYLE_TITLE.copyWith(fontSize: 40.0),
               ),
             ),
             const SizedBox(height: 40.0),
@@ -35,7 +35,7 @@ class _LandingAfterScreenState extends State<LandingAfterScreen> {
                   textColor: Colors.white,
                   title: 'Login',
                   onPressed: () {
-                    Navigator.pushNamed(context, loginRoute);
+                    Navigator.pushNamed(context, ROUTE_LOGIN);
                   }),
             ),
             RoundButton(
@@ -43,7 +43,7 @@ class _LandingAfterScreenState extends State<LandingAfterScreen> {
                 textColor: Colors.black,
                 title: 'Register',
                 onPressed: () {
-                  Navigator.pushNamed(context, registerRoute);
+                  Navigator.pushNamed(context, ROUTE_REGISTER);
                 })
           ],
         ),

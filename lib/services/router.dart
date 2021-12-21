@@ -13,23 +13,23 @@ import 'package:mooday/screens/weather/weather_screen.dart';
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case landingRoute:
+      case ROUTE_LANDING:
         return MaterialPageRoute(builder: (_) => LandingScreen());
-      case landingAfterRoute:
+      case ROUTE_LANDING_AFTER:
         return MaterialPageRoute(builder: (_) => LandingAfterScreen());
-      case loginRoute:
+      case ROUTE_LOGIN:
         return MaterialPageRoute(builder: (_) => LoginScreen());
-      case registerRoute:
+      case ROUTE_REGISTER:
         return MaterialPageRoute(builder: (_) => RegisterScreen());
-      case homeRoute:
+      case ROUTE_HOME:
         return MaterialPageRoute(builder: (_) => HomeScreen());
-      case moodRoute:
+      case ROUTE_MOOD:
         return MaterialPageRoute(builder: (_) => MoodScreen());
-      case timerRoute:
+      case ROUTE_TIMER:
         return MaterialPageRoute(builder: (_) => TimerScreen());
-      case todoRoute:
+      case ROUTE_TODO:
         return MaterialPageRoute(builder: (_) => TodoScreen());
-      case weatherRoute:
+      case ROUTE_WEATHER:
         return MaterialPageRoute(builder: (_) => WeatherScreen());
       default:
         return MaterialPageRoute(

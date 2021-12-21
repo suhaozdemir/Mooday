@@ -32,7 +32,7 @@ class TodoTile extends StatelessWidget {
         ),
       ),
       decoration: BoxDecoration(
-        color: ktheme2color,
+        color: THEME_COLOR_2,
         borderRadius: BorderRadius.circular(30.0),
       ),
     );

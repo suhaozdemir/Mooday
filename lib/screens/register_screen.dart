@@ -26,8 +26,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            ktitleText,
-            style: ktitleStyle.copyWith(fontSize: 40.0),
+            TEXT_TITLE,
+            style: STYLE_TITLE.copyWith(fontSize: 40.0),
           ),
           const SizedBox(height: 40.0),
           Padding(
@@ -38,14 +38,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   textAlign: TextAlign.center,
-                  decoration: kTextFileDecoration,
+                  decoration: DECORATION_TEXT_FILE,
                 ),
                 const SizedBox(height: 10.0),
                 TextFormField(
                   controller: _passwordController,
                   obscureText: true,
                   textAlign: TextAlign.center,
-                  decoration: kTextFileDecoration.copyWith(
+                  decoration: DECORATION_TEXT_FILE.copyWith(
                       hintText: 'Enter your password'),
                 ),
               ],
@@ -62,11 +62,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   var user = await _authService.createUser(
                       _emailController.text, _passwordController.text);
                   if (user != null) {
-                    ScaffoldMessenger.of(context).showSnackBar(ksnackSuccess);
-                    Navigator.pushNamed(context, homeRoute);
+                    ScaffoldMessenger.of(context).showSnackBar(SNACKBAR_SUCCESS);
+                    Navigator.pushNamed(context, ROUTE_HOME);
                   }
                 } catch (e) {
-                  ScaffoldMessenger.of(context).showSnackBar(ksnackError);
+                  ScaffoldMessenger.of(context).showSnackBar(SNACKBAR_ERROR);
                 }
               },
             ),

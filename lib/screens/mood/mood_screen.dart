@@ -47,7 +47,7 @@ class _MoodScreenState extends State<MoodScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('How are you?', style: ktitleStyle),
+            const Text('How are you?', style: STYLE_TITLE),
             const SizedBox(height: 30.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mooday/screens/todo/localwidgets/todo_tile.dart';
 import 'package:mooday/widgets/floating_button.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/screens/todo/localwidgets/todo_list.dart';
@@ -20,8 +19,8 @@ class TodoScreen extends StatelessWidget {
           ),
           Center(
             child: Text(
-              ktitleText,
-              style: ktitleStyle.copyWith(color: Colors.white),
+              TEXT_TITLE,
+              style: STYLE_TITLE.copyWith(color: Colors.white),
             ),
           ),
           const SizedBox(height: 30.0),

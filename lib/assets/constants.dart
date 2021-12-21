@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 
-//Routing
-const String landingRoute = '/';
-const String landingAfterRoute = '/lafter';
-const String registerRoute = '/register';
-const String loginRoute = '/login';
-const String homeRoute = '/home';
-const String moodRoute = '/mood';
-const String timerRoute = '/timer';
-const String todoRoute = '/todo';
-const String weatherRoute = '/weather';
+// ROUTING
+const String ROUTE_LANDING = '/';
+const String ROUTE_LANDING_AFTER = '/lafter';
+const String ROUTE_REGISTER = '/register';
+const String ROUTE_LOGIN = '/login';
+const String ROUTE_HOME = '/home';
+const String ROUTE_MOOD = '/mood';
+const String ROUTE_TIMER = '/timer';
+const String ROUTE_TODO = '/todo';
+const String ROUTE_WEATHER = '/weather';
 
-const String ktitleText = '/mooday;';
-const ktitleStyle = TextStyle(
+// TEXT AND STYLES
+const String TEXT_TITLE = '/mooday;';
+const STYLE_TITLE = TextStyle(
     fontSize: 30.0,
     fontFamily: 'Oswald',
     color: Colors.black,
     fontWeight: FontWeight.bold);
 
-const String ksubtitleText = 'Track your day.';
-const ksubtitleStyle = TextStyle(
+const String TEXT_SUBTITLE = 'Track your day.';
+const STYLE_SUBTITLE = TextStyle(
     fontSize: 45.0, fontWeight: FontWeight.w800, fontFamily: 'Oswald');
 
-const String ksubtitleText2 = 'Click start to begin.';
-const ksubtitleStyle2 = TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600);
+const String TEXT_SUBTITLE_2 = 'Click start to begin.';
+const STYLE_SUBTITLE_2 = TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600);
 
-const kTextFileDecoration = InputDecoration(
+const DECORATION_TEXT_FILE = InputDecoration(
   hintText: 'Enter your email',
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
   border: OutlineInputBorder(
@@ -41,7 +42,9 @@ const kTextFileDecoration = InputDecoration(
   ),
 );
 
-const ksnackSuccess = SnackBar(content: Text('Login Successfull!'));
-const ksnackError = SnackBar(content: Text('Wrong email or password!'));
+// SNACKBAR MESSAGES
+const SNACKBAR_SUCCESS = SnackBar(content: Text('Login Successfull!'));
+const SNACKBAR_ERROR = SnackBar(content: Text('Wrong email or password!'));
 
-const ktheme2color = Color(0XFFF2F1F6);
+// THEME COLORS
+const THEME_COLOR_2 = Color(0XFFF2F1F6);

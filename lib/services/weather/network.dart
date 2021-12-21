@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-class Network {
-  Network(this.url);
+class NetworkService {
+  NetworkService(this.url);
 
   final String url;
 

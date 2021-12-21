@@ -51,20 +51,20 @@ class _LandingScreenState extends State<LandingScreen>
               const Hero(
                 tag: 'hero-title',
                 child: Text(
-                  ktitleText,
-                  style: ktitleStyle,
+                  TEXT_TITLE,
+                  style: STYLE_TITLE,
                 ),
               ),
               const SizedBox(height: 20.0),
               const Text(
-                ksubtitleText,
-                style: ksubtitleStyle,
+                TEXT_SUBTITLE,
+                style: STYLE_SUBTITLE,
               ),
               AnimatedTextKit(
                 animatedTexts: [
                   TypewriterAnimatedText(
-                    ksubtitleText2,
-                    textStyle: ksubtitleStyle2,
+                    TEXT_SUBTITLE_2,
+                    textStyle: STYLE_SUBTITLE_2,
                     speed: const Duration(milliseconds: 150),
                   ),
                 ],
@@ -83,9 +83,9 @@ class _LandingScreenState extends State<LandingScreen>
         scale: 1.7,
         title: 'Start',
         onPressed: () {
-          Navigator.pushNamed(context, landingAfterRoute);
+          Navigator.pushNamed(context, ROUTE_LANDING_AFTER);
           if (_auth.currentUser != null) {
-            Navigator.pushNamed(context, homeRoute);
+            Navigator.pushNamed(context, ROUTE_HOME);
           }
         },
       ),

@@ -29,8 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: const Center(
               child: Text(
-                ktitleText,
-                style: ktitleStyle,
+                TEXT_TITLE,
+                style: STYLE_TITLE,
               ),
             ),
           ),
@@ -46,11 +46,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(
                     'Welcome,',
-                    style: ksubtitleStyle2.copyWith(fontSize: 22.0),
+                    style: STYLE_SUBTITLE_2.copyWith(fontSize: 22.0),
                   ),
                   Text(
                     'What do you want to do?',
-                    style: ksubtitleStyle.copyWith(fontSize: 25.0),
+                    style: STYLE_SUBTITLE.copyWith(fontSize: 25.0),
                   ),
                   SizedBox(height: size.height * 0.02),
                   Expanded(
@@ -64,37 +64,37 @@ class _HomeScreenState extends State<HomeScreen> {
                             assetImg: 'assets/images/mood.png',
                             categoryText: 'Mood',
                             onTap: () {
-                              Navigator.pushNamed(context, moodRoute);
+                              Navigator.pushNamed(context, ROUTE_MOOD);
                             }),
                         CategoryCard(
                             assetImg: 'assets/images/todo.png',
                             categoryText: 'To-Do',
                             onTap: () {
-                              Navigator.pushNamed(context, todoRoute);
+                              Navigator.pushNamed(context, ROUTE_TODO);
                             }),
                         CategoryCard(
                             assetImg: 'assets/images/timer.png',
                             categoryText: 'Timer',
                             onTap: () {
-                              Navigator.pushNamed(context, timerRoute);
+                              Navigator.pushNamed(context, ROUTE_TIMER);
                             }),
                         CategoryCard(
                             assetImg: 'assets/images/finance.png',
                             categoryText: 'Finance',
                             onTap: () {
-                              Navigator.pushNamed(context, homeRoute);
+                              Navigator.pushNamed(context, ROUTE_HOME);
                             }),
                         CategoryCard(
                             assetImg: 'assets/images/weather.png',
                             categoryText: 'Weather',
                             onTap: () {
-                              Navigator.pushNamed(context, homeRoute);
+                              Navigator.pushNamed(context, ROUTE_HOME);
                             }),
                         CategoryCard(
                             assetImg: 'assets/images/finance.png',
                             categoryText: 'Finance',
                             onTap: () {
-                              Navigator.pushNamed(context, homeRoute);
+                              Navigator.pushNamed(context, ROUTE_HOME);
                             }),
                       ],
                     ),
