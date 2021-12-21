@@ -11,6 +11,10 @@ const String ROUTE_TIMER = '/timer';
 const String ROUTE_TODO = '/todo';
 const String ROUTE_WEATHER = '/weather';
 
+// API
+const String API_URL = 'https://api.openweathermap.org/data/2.5/weather';
+const String API_KEY = '6d3d1a05c0a9edde18dda340a0842d6a';
+
 // TEXT AND STYLES
 const String TEXT_TITLE = '/mooday;';
 const STYLE_TITLE = TextStyle(

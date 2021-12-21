@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             assetImg: 'assets/images/weather.png',
                             categoryText: 'Weather',
                             onTap: () {
-                              Navigator.pushNamed(context, ROUTE_HOME);
+                              Navigator.pushNamed(context, ROUTE_WEATHER);
                             }),
                         CategoryCard(
                             assetImg: 'assets/images/finance.png',
