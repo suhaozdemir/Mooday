@@ -8,6 +8,7 @@ import 'package:mooday/screens/mood/mood_screen.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/screens/timer/timer_screen.dart';
 import 'package:mooday/screens/todo/todo_screen.dart';
+import 'package:mooday/screens/weather/load_weather_screen.dart';
 import 'package:mooday/screens/weather/weather_screen.dart';
 
 class AppRouter {
@@ -31,6 +32,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => TodoScreen());
       case ROUTE_WEATHER:
         return MaterialPageRoute(builder: (_) => WeatherScreen());
+      case ROUTE_LOAD_WEATHER:
+        return MaterialPageRoute(builder: (_) => LoadWeatherScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

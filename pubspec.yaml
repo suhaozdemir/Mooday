@@ -27,6 +27,7 @@ dependencies:
   #services
   location: ^4.3.0
   http: ^0.13.4
+  flutter_spinkit: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -43,6 +44,7 @@ flutter:
      - assets/images/
      - assets/images/moods/
      - assets/images/peep-73.png
+     - assets/images/weather/
 
   fonts:
      - family: Oswald

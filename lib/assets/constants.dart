@@ -10,6 +10,7 @@ const String ROUTE_MOOD = '/mood';
 const String ROUTE_TIMER = '/timer';
 const String ROUTE_TODO = '/todo';
 const String ROUTE_WEATHER = '/weather';
+const String ROUTE_LOAD_WEATHER = '/lweather';
 
 // API
 const String API_URL = 'https://api.openweathermap.org/data/2.5/weather';
@@ -37,7 +38,7 @@ const DECORATION_TEXT_FILE = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
   enabledBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.black, width: 1.0),
+    borderSide: BorderSide(color: Colors.black, width: 1.8),
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
   focusedBorder: OutlineInputBorder(
