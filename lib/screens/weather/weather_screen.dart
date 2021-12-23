@@ -17,6 +17,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   late Image weatherImage;
   late String cityName;
   late String weatherDesc;
+  final TextEditingController _cityController = TextEditingController();
 
   @override
   void initState() {
@@ -46,6 +47,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
@@ -56,6 +58,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(22.0),
                     child: TextField(
+                      controller: _cityController,
                       decoration: DECORATION_TEXT_FILE.copyWith(
                           hintText: 'Enter a City'),
                     ),
@@ -67,8 +70,15 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     elevation: 10.0,
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(32.0),
-                    child: const MaterialButton(
-                      onPressed: null,
+                    child: MaterialButton(
+                      onPressed: () async {
+                        var typedName = await _cityController.text;
+                        if (typedName != null) {
+                          var weatherData =
+                              await weather.getCityWeather(typedName);
+                          updateWeather(weatherData);
+                        }
+                      },
                       minWidth: 10.0,
                       height: 40.0,
                       child: Icon(
