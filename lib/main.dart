@@ -33,7 +33,7 @@ class Mooday extends StatelessWidget {
         // locale: DevicePreview.locale(context),
         // home: MoodScreen(),
         onGenerateRoute: AppRouter.generateRoute,
-        initialRoute: ROUTE_HOME,
+        initialRoute: ROUTE_NOTES,
       ),
     );
   }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
+import 'package:mooday/screens/notes/localwidgets/note_list.dart';
+import 'package:mooday/widgets/floating_button.dart';
+import 'package:mooday/screens/notes/add_note_screen.dart';
 
 class NotesScreen extends StatelessWidget {
   const NotesScreen({Key? key}) : super(key: key);
@@ -31,11 +34,18 @@ class NotesScreen extends StatelessWidget {
                     topRight: Radius.circular(30.0),
                     topLeft: Radius.circular(30.0)),
               ),
-              child: Text('Denemeleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer'),
+              child: NoteList(),
             ),
           )
         ],
       ),
+      floatingActionButton: FloatingButton(
+          scale: 1.2,
+          title: 'Add',
+          onPressed: () {
+            showModalBottomSheet(
+                context: context, builder: (context) => AddNoteScreen());
+          }),
     );
   }
 }
