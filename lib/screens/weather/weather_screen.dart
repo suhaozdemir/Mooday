@@ -27,13 +27,13 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
   void updateWeather(dynamic weatherData) {
     setState(() {
-      // if (weatherData == null) {
-      //   temperature = 0;
-      //   weatherImage = Image.asset('assets/images/moods/sadmood.png');
-      //   weatherDesc = 'Unable to get weather data';
-      //   cityName = '';
-      //   return;
-      // }
+      if (weatherData == null) {
+        temperature = 0;
+        weatherImage = Image.asset('assets/images/moods/sadmood.png');
+        weatherDesc = 'Unable to get weather data';
+        cityName = '';
+        return;
+      }
       double temp = weatherData['main']['temp'];
       temperature = temp.toInt();
       var condition = weatherData['weather'][0]['id'];
@@ -81,7 +81,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       },
                       minWidth: 10.0,
                       height: 40.0,
-                      child: Icon(
+                      child: const Icon(
                         Icons.search,
                         color: Colors.white,
                       ),
@@ -92,16 +92,19 @@ class _WeatherScreenState extends State<WeatherScreen> {
             ),
             const SizedBox(height: 70.0),
             weatherImage,
+            const SizedBox(height: 5.0),
             Text(
               '$temperature°C',
               style:
                   const TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0),
             ),
+            const SizedBox(height: 5.0),
             Text(
               cityName,
               style:
                   const TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0),
             ),
+            const SizedBox(height: 5.0),
             Text(
               weatherDesc,
               style:

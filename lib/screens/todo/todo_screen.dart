@@ -26,7 +26,7 @@ class TodoScreen extends StatelessWidget {
           const SizedBox(height: 30.0),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 30.0),
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
               height: 300.0,
               decoration: const BoxDecoration(
                 color: Colors.white,

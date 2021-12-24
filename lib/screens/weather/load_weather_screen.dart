@@ -20,11 +20,15 @@ class _LoadWeatherScreenState extends State<LoadWeatherScreen> {
   void getLocationData() async {
     var weatherData = await Weather().getLocationWeather();
 
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return WeatherScreen(
-        locationWeather: weatherData,
-      );
-    }));
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => WeatherScreen(
+          locationWeather: weatherData,
+        ),
+      ),
+      ModalRoute.withName('/home'),
+    );
   }
 
   @override
