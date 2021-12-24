@@ -15,5 +15,6 @@ class NoteData extends ChangeNotifier {
   void addNote(String newNoteTitle, String newNoteDesc) {
     Note note = Note(title: newNoteTitle, description: newNoteDesc);
     _notes.add(note);
+    notifyListeners();
   }
 }

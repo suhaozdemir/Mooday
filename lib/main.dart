@@ -8,6 +8,7 @@ import 'services/router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:provider/provider.dart';
+import 'package:mooday/models/notes/note_data.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,8 +23,11 @@ void main() async {
 class Mooday extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => TaskData(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<TaskData>(create: (context) => TaskData()),
+        ChangeNotifierProvider<NoteData>(create: (context) => NoteData())
+      ],
       child: MaterialApp(
         // useInheritedMediaQuery: true, // Set to true
         // locale: DevicePreview.locale(context),
