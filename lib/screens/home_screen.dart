@@ -61,37 +61,37 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisSpacing: 12,
                       children: [
                         CategoryCard(
-                            assetImg: 'assets/images/mood.png',
+                            assetImg: 'assets/images/home/mood.png',
                             categoryText: 'Mood',
                             onTap: () {
                               Navigator.pushNamed(context, ROUTE_MOOD);
                             }),
                         CategoryCard(
-                            assetImg: 'assets/images/todo.png',
+                            assetImg: 'assets/images/home/todo.png',
                             categoryText: 'To-Do',
                             onTap: () {
                               Navigator.pushNamed(context, ROUTE_TODO);
                             }),
                         CategoryCard(
-                            assetImg: 'assets/images/timer.png',
+                            assetImg: 'assets/images/home/timer.png',
                             categoryText: 'Timer',
                             onTap: () {
                               Navigator.pushNamed(context, ROUTE_TIMER);
                             }),
                         CategoryCard(
-                            assetImg: 'assets/images/finance.png',
-                            categoryText: 'Finance',
+                            assetImg: 'assets/images/home/note.png',
+                            categoryText: 'Notes',
                             onTap: () {
-                              Navigator.pushNamed(context, ROUTE_HOME);
+                              Navigator.pushNamed(context, ROUTE_NOTES);
                             }),
                         CategoryCard(
-                            assetImg: 'assets/images/weather.png',
+                            assetImg: 'assets/images/home/weather.png',
                             categoryText: 'Weather',
                             onTap: () {
                               Navigator.pushNamed(context, ROUTE_LOAD_WEATHER);
                             }),
                         CategoryCard(
-                            assetImg: 'assets/images/finance.png',
+                            assetImg: 'assets/images/home/finance.png',
                             categoryText: 'Finance',
                             onTap: () {
                               Navigator.pushNamed(context, ROUTE_HOME);

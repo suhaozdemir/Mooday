@@ -42,6 +42,7 @@ flutter:
 
   assets:
      - assets/images/
+     - assets/images/home/
      - assets/images/moods/
      - assets/images/peep-73.png
      - assets/images/weather/

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mooday/screens/landing_screen.dart';
 import 'package:mooday/screens/landingafter_screen.dart';
 import 'package:mooday/screens/home_screen.dart';
+import 'package:mooday/screens/notes/notes_screen.dart';
 import 'package:mooday/screens/register_screen.dart';
 import 'package:mooday/screens/sign_screen.dart';
 import 'package:mooday/screens/mood/mood_screen.dart';
@@ -30,6 +31,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => TimerScreen());
       case ROUTE_TODO:
         return MaterialPageRoute(builder: (_) => TodoScreen());
+      case ROUTE_NOTES:
+        return MaterialPageRoute(builder: (_) => NotesScreen());
       case ROUTE_WEATHER:
         return MaterialPageRoute(builder: (_) => WeatherScreen());
       case ROUTE_LOAD_WEATHER:

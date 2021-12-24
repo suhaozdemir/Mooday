@@ -11,6 +11,7 @@ const String ROUTE_TIMER = '/timer';
 const String ROUTE_TODO = '/todo';
 const String ROUTE_WEATHER = '/weather';
 const String ROUTE_LOAD_WEATHER = '/lweather';
+const String ROUTE_NOTES = '/notes';
 
 // API
 const String API_URL = 'https://api.openweathermap.org/data/2.5/weather';
