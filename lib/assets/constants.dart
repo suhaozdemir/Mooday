@@ -48,6 +48,22 @@ const DECORATION_TEXT_FILE = InputDecoration(
   ),
 );
 
+const DECORATION_TEXT_FILE_2 = InputDecoration(
+  hintText: 'Enter a Title',
+  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.black, width: 1.8),
+    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.black54, width: 2.0),
+    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+  ),
+);
+
 // SNACKBAR MESSAGES
 const SNACKBAR_SUCCESS = SnackBar(content: Text('Login Successfull!'));
 const SNACKBAR_ERROR = SnackBar(content: Text('Wrong email or password!'));

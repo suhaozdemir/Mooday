@@ -15,6 +15,9 @@ class NoteList extends StatelessWidget {
           return NoteCard(
             noteTitle: note.title,
             noteDesc: note.description,
+            onPressed: () {
+              noteData.deleteNote(note);
+            },
           );
         },
         itemCount: noteData.notesLength,

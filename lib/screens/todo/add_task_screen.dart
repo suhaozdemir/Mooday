@@ -7,11 +7,11 @@ class AddTaskScreen extends StatefulWidget {
   State<AddTaskScreen> createState() => _AddTaskScreenState();
 }
 
+final TextEditingController newTaskTitle = TextEditingController();
+
 class _AddTaskScreenState extends State<AddTaskScreen> {
   @override
   Widget build(BuildContext context) {
-    final TextEditingController newTaskTitle = TextEditingController();
-
     return Container(
       color: const Color(0xff757575),
       child: Container(
