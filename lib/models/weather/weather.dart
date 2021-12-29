@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:mooday/services/weather/location.dart';
-import 'package:mooday/services/weather/network.dart';
+import 'package:mooday/services/network.dart';
 import 'package:mooday/assets/constants.dart';
 
 class Weather {
@@ -9,14 +9,15 @@ class Weather {
     await location.getLocation();
 
     NetworkService networkService = NetworkService(
-        '$API_URL?lat=${location.latitude}&lon=${location.longitude}&appid=$API_KEY&units=metric');
+        '$WEATHER_API_URL?lat=${location.latitude}&lon=${location.longitude}&appid=$WEATHER_API_KEY&units=metric');
 
     var weatherData = await networkService.getData();
     return weatherData;
   }
 
   Future<dynamic> getCityWeather(String cityName) {
-    var url = '$API_URL?q=$cityName&appid=$API_KEY&units=metric';
+    var url =
+        '$WEATHER_API_URL?q=$cityName&appid=$WEATHER_API_KEY&units=metric';
 
     NetworkService networkService = NetworkService(url);
 

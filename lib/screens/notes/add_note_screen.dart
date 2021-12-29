@@ -12,50 +12,54 @@ class AddNoteScreen extends StatefulWidget {
 
 final TextEditingController newNoteTitle = TextEditingController();
 final TextEditingController newNoteDesc = TextEditingController();
+bool _validate = false;
 
 class _AddNoteScreenState extends State<AddNoteScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
-      child: Column(
-        children: [
-          Text('TITLE', style: STYLE_TITLE.copyWith(fontSize: 17.0)),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              maxLines: 2,
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            Text('TITLE', style: STYLE_TITLE.copyWith(fontSize: 17.0)),
+            const SizedBox(height: 5.0),
+            TextField(
               autofocus: true,
               controller: newNoteTitle,
               decoration: DECORATION_TEXT_FILE_2,
             ),
-          ),
-          Text(
-            'DESCRIPTION',
-            style: STYLE_TITLE.copyWith(fontSize: 17.0),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-                maxLines: 5,
+            const SizedBox(height: 10.0),
+            Text(
+              'DESCRIPTION',
+              style: STYLE_TITLE.copyWith(fontSize: 17.0),
+            ),
+            const SizedBox(height: 5.0),
+            TextField(
+                maxLines: 10,
                 controller: newNoteDesc,
                 decoration:
                     DECORATION_TEXT_FILE_2.copyWith(hintText: 'Enter a Note')),
-          ),
-          TextButton(
-              onPressed: () {
-                Provider.of<NoteData>(context, listen: false)
-                    .addNote(newNoteTitle.text, newNoteDesc.text);
-                Navigator.pop(context);
-                newNoteTitle.clear();
-                newNoteDesc.clear();
-              },
-              child: Text('Add'),
-              style: TextButton.styleFrom(
-                  primary: Colors.white,
-                  backgroundColor: Colors.black,
-                  elevation: 20.0))
-        ],
+            TextButton(
+                onPressed: () {
+                  if (newNoteTitle.text.isNotEmpty) {
+                    Provider.of<NoteData>(context, listen: false)
+                        .addNote(newNoteTitle.text, newNoteDesc.text);
+                    Navigator.pop(context);
+                    newNoteTitle.clear();
+                    newNoteDesc.clear();
+                  } else {
+                    print('Empty');
+                  }
+                },
+                child: const Text('Add'),
+                style: TextButton.styleFrom(
+                    primary: Colors.white,
+                    backgroundColor: Colors.black,
+                    elevation: 20.0))
+          ],
+        ),
       ),
     );
   }
