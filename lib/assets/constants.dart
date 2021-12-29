@@ -12,13 +12,14 @@ const String ROUTE_TODO = '/todo';
 const String ROUTE_WEATHER = '/weather';
 const String ROUTE_LOAD_WEATHER = '/lweather';
 const String ROUTE_NOTES = '/notes';
+const String ROUTE_FINANCE = '/finance';
 
 // API
 const String WEATHER_API_URL =
     'https://api.openweathermap.org/data/2.5/weather';
 const String WEATHER_API_KEY = '6d3d1a05c0a9edde18dda340a0842d6a';
-const String FINANCE_API_URL = 'https://rest.coinapi.io/v1/exchangerate';
-const String FINANCE_API_KEY = 'BA314DFF-7929-49CE-87AD-EA40847A355E';
+const String FINANCE_API_URL = 'https://free.currconv.com';
+const String FINANCE_API_KEY = '95dccf82a52a1c7c0e7d';
 
 // TEXT AND STYLES
 const String TEXT_TITLE = '/mooday;';
