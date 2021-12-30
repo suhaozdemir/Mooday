@@ -12,7 +12,6 @@ class AddNoteScreen extends StatefulWidget {
 
 final TextEditingController newNoteTitle = TextEditingController();
 final TextEditingController newNoteDesc = TextEditingController();
-bool _validate = false;
 
 class _AddNoteScreenState extends State<AddNoteScreen> {
   @override

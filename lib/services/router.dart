@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mooday/models/finance/load_finance_screen.dart';
 import 'package:mooday/screens/finance/finance_screen.dart';
 import 'package:mooday/screens/landing_screen.dart';
 import 'package:mooday/screens/landingafter_screen.dart';
@@ -39,7 +40,9 @@ class AppRouter {
       case ROUTE_LOAD_WEATHER:
         return MaterialPageRoute(builder: (_) => const LoadWeatherScreen());
       case ROUTE_FINANCE:
-        return MaterialPageRoute(builder: (_) => const FinanceScreen());
+        return MaterialPageRoute(builder: (_) => FinanceScreen());
+      case ROUTE_LOAD_FINANCE:
+        return MaterialPageRoute(builder: (_) => const LoadFinanceScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

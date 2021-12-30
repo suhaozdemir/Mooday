@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             assetImg: 'assets/images/home/finance.png',
                             categoryText: 'Finance',
                             onTap: () {
-                              Navigator.pushNamed(context, ROUTE_HOME);
+                              Navigator.pushNamed(context, ROUTE_LOAD_FINANCE);
                             }),
                       ],
                     ),
