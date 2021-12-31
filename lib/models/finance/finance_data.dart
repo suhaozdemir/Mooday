@@ -1,5 +1,6 @@
 import 'package:mooday/services/network.dart';
 import 'package:mooday/assets/constants.dart';
+import 'package:flutter/material.dart';
 
 late List<dynamic> currenciesList;
 
@@ -22,5 +23,19 @@ class FinanceData {
     var financeData = await networkService.getData();
     final rate = financeData['${fromCurr}_$toCurr'].toDouble();
     return rate * value;
+  }
+
+  List<DropdownMenuItem<String>> getDropdownItems() {
+    List<DropdownMenuItem<String>> dropdownItems = [];
+
+    for (String currency in currenciesList) {
+      var newItem = DropdownMenuItem(
+        child: Text(currency),
+        value: currency,
+      );
+      dropdownItems.add(newItem);
+    }
+
+    return dropdownItems;
   }
 }
