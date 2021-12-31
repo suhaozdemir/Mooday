@@ -24,6 +24,13 @@ class _FinanceScreenState extends State<FinanceScreen> {
   }
 
   String fromCurr = 'USD';
+  String toCurr = 'TRY';
+  double value = 1;
+
+  getData() async {
+    var data = await financeData.convertCurrencies(fromCurr, toCurr, value);
+    print(data);
+  }
 
   DropdownButton getDropdownButton() {
     List<DropdownMenuItem<String>> dropdownItems = [];
@@ -85,6 +92,16 @@ class _FinanceScreenState extends State<FinanceScreen> {
                       decoration: DECORATION_TEXT_FILE_3,
                       keyboardType: TextInputType.number,
                       textAlign: TextAlign.center,
+                      //ERROR PART IS HERE
+                      onSubmitted: (value) async {
+                        var val;
+                        setState(() {
+                          val = double.parse(value);
+                        });
+                        var deneme = await financeData.convertCurrencies(
+                            fromCurr, toCurr, val);
+                        print(deneme);
+                      },
                     )
                   ],
                 ),
@@ -133,7 +150,7 @@ class _FinanceScreenState extends State<FinanceScreen> {
           scale: 1.2,
           title: 'Back',
           onPressed: () {
-            Navigator.pop(context);
+            getData();
           }),
     );
   }
