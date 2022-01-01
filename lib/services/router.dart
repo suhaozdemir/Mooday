@@ -30,7 +30,7 @@ class AppRouter {
       case ROUTE_MOOD:
         return MaterialPageRoute(builder: (_) => MoodScreen());
       case ROUTE_TIMER:
-        return MaterialPageRoute(builder: (_) => const TimerScreen());
+        return MaterialPageRoute(builder: (_) => TimerScreen());
       case ROUTE_TODO:
         return MaterialPageRoute(builder: (_) => const TodoScreen());
       case ROUTE_NOTES:
