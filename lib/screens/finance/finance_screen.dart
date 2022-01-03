@@ -83,7 +83,6 @@ class _FinanceScreenState extends State<FinanceScreen> {
                         setState(() {
                           result = exchangedValue;
                         });
-                        print(exchangedValue);
                       },
                     )
                   ],

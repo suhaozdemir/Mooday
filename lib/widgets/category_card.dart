@@ -22,11 +22,10 @@ class CategoryCard extends StatelessWidget {
           gradient: const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Color(0XFFF2F1F6), Color(0xffeef2f3)]),
+              colors: [Color(0xFFF2F1F6), Color(0xffeef2f3)]),
           borderRadius: BorderRadius.circular(13.0),
         ),
         child: Material(
-          color: Colors.white,
           elevation: 100.0,
           child: InkWell(
             onTap: onTap,

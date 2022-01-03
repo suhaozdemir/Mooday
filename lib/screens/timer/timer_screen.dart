@@ -8,9 +8,11 @@ class TimerScreen extends StatefulWidget {
   _TimerScreenState createState() => _TimerScreenState();
 }
 
+CountDownController _controller = CountDownController();
+
 class _TimerScreenState extends State<TimerScreen> {
-  CountDownController _controller = CountDownController();
-  late int duration = 10;
+  int duration = 10;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,12 +29,9 @@ class _TimerScreenState extends State<TimerScreen> {
           CircularMenuItem(
               color: Color(0xffbfc0cd),
               iconColor: Colors.black,
-              icon: Icons.stop,
+              icon: Icons.arrow_back,
               onTap: () {
-                setState(() {
-                  duration = 0;
-                  _controller.pause();
-                });
+                Navigator.pop(context);
               }),
           CircularMenuItem(
               color: Color(0xffbfc0cd),
