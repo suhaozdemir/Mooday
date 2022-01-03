@@ -4,6 +4,7 @@ import 'package:mooday/screens/finance/finance_screen.dart';
 import 'package:mooday/screens/landing_screen.dart';
 import 'package:mooday/screens/landingafter_screen.dart';
 import 'package:mooday/screens/home_screen.dart';
+import 'package:mooday/screens/mood/mood_tracker_screen.dart';
 import 'package:mooday/screens/notes/notes_screen.dart';
 import 'package:mooday/screens/register_screen.dart';
 import 'package:mooday/screens/sign_screen.dart';
@@ -29,6 +30,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case ROUTE_MOOD:
         return MaterialPageRoute(builder: (_) => MoodScreen());
+      case ROUTE_MOOD_TRACKER:
+        return MaterialPageRoute(builder: (_) => MoodTrackerScreen());
       case ROUTE_TIMER:
         return MaterialPageRoute(builder: (_) => TimerScreen());
       case ROUTE_TODO:

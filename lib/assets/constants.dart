@@ -7,6 +7,7 @@ const String ROUTE_REGISTER = '/register';
 const String ROUTE_LOGIN = '/login';
 const String ROUTE_HOME = '/home';
 const String ROUTE_MOOD = '/mood';
+const String ROUTE_MOOD_TRACKER = '/tracker';
 const String ROUTE_TIMER = '/timer';
 const String ROUTE_TODO = '/todo';
 const String ROUTE_WEATHER = '/weather';

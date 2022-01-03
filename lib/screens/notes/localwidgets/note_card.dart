@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
-import 'package:mooday/models/notes/note_data.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard(

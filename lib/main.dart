@@ -23,7 +23,7 @@ class Mooday extends StatelessWidget {
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: AppRouter.generateRoute,
-        initialRoute: ROUTE_HOME,
+        initialRoute: ROUTE_MOOD_TRACKER,
       ),
     );
   }
