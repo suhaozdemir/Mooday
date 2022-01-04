@@ -4,7 +4,7 @@ import 'package:mooday/screens/finance/finance_screen.dart';
 import 'package:mooday/screens/landing_screen.dart';
 import 'package:mooday/screens/landingafter_screen.dart';
 import 'package:mooday/screens/home_screen.dart';
-import 'package:mooday/screens/mood/mood_tracker_screen.dart';
+import 'package:mooday/screens/mood/tracker/mood_tracker_screen.dart';
 import 'package:mooday/screens/notes/notes_screen.dart';
 import 'package:mooday/screens/register_screen.dart';
 import 'package:mooday/screens/sign_screen.dart';
