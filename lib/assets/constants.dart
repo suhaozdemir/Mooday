@@ -83,7 +83,11 @@ const DECORATION_TEXT_FILE_3 = InputDecoration(
 
 // SNACKBAR MESSAGES
 const SNACKBAR_SUCCESS = SnackBar(content: Text('Login Successfull!'));
-const SNACKBAR_ERROR = SnackBar(content: Text('Wrong email or password!'));
+const SNACKBAR_RSUCCESS = SnackBar(content: Text('Register Successfull!'));
+const SNACKBAR_ERROR = SnackBar(
+  content: Text('Invalid email or password!'),
+  backgroundColor: Colors.red,
+);
 
 // THEME COLORS
 const THEME_COLOR_2 = Color(0XFFF2F1F6);

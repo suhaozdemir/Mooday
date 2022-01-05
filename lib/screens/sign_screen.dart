@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/widgets/round_button.dart';
 import 'package:mooday/widgets/floating_button.dart';
-import 'package:mooday/services/auth.dart';
+import 'package:mooday/services/firebase/auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -61,7 +61,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       _emailController.text, _passwordController.text);
 
                   if (user != null) {
-                    ScaffoldMessenger.of(context).showSnackBar(SNACKBAR_SUCCESS);
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SNACKBAR_SUCCESS);
                     Navigator.pop(context);
                     Navigator.pushNamed(context, ROUTE_HOME);
                   }

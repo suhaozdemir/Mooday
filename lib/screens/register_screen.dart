@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/widgets/round_button.dart';
 import 'package:mooday/widgets/floating_button.dart';
-import 'package:mooday/services/auth.dart';
+import 'package:mooday/services/firebase/auth.dart';
+import 'package:mooday/services/firebase/database.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   AuthService _authService = AuthService();
+  DatabaseService _databaseService = DatabaseService();
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -62,7 +64,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   var user = await _authService.createUser(
                       _emailController.text, _passwordController.text);
                   if (user != null) {
-                    ScaffoldMessenger.of(context).showSnackBar(SNACKBAR_SUCCESS);
+                    _databaseService.addUser(_emailController.text, user.uid);
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SNACKBAR_RSUCCESS);
                     Navigator.pushNamed(context, ROUTE_HOME);
                   }
                 } catch (e) {
