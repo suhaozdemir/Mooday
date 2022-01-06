@@ -6,8 +6,5 @@ import 'package:mooday/services/firebase/database.dart';
 class NoteData extends ChangeNotifier {
   void addNote(Note note) => DatabaseService().addNote(note);
 
-  void deleteNote(Note note) {
-    //_notes.remove(note);
-    notifyListeners();
-  }
+  void deleteNote(Note note) => DatabaseService().deleteNote(note);
 }

@@ -96,4 +96,14 @@ class DatabaseService {
     });
     return note;
   }
+
+  Future<void> deleteNote(Note note) async {
+    DocumentReference notes = _firestore
+        .collection('Notes')
+        .doc(_auth.currentUser?.uid)
+        .collection('userNotes')
+        .doc(note.id);
+
+    return await notes.delete();
+  }
 }
