@@ -7,4 +7,14 @@ class Task {
   void toggleDone() {
     isDone = !isDone;
   }
+
+  static Task fromJson(Map<String, dynamic> json) => Task(
+        name: json['title'],
+        isDone: json['isDone'],
+      );
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'isDone': isDone,
+      };
 }
