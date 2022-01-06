@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mooday/models/todo/task.dart';
+import 'package:mooday/services/firebase/database.dart';
 import 'dart:collection';
 
 class TaskData extends ChangeNotifier {
@@ -17,15 +18,7 @@ class TaskData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void addTask(String newTaskTitle) {
-    if (newTaskTitle == '') {
-      print('Field is empty');
-    } else {
-      final task = Task(name: newTaskTitle);
-      _tasks.add(task);
-      notifyListeners();
-    }
-  }
+  void addTask(Task task) => DatabaseService().addTask(task);
 
   void removeTask(Task task) {
     _tasks.remove(task);

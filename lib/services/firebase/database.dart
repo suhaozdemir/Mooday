@@ -13,8 +13,8 @@ class DatabaseService {
         .catchError((error) => print('Error'));
   }
 
-  Future<void> addTask(Task task, String uid) async {
-    DocumentReference tasks = _firestore.collection('Tasks').doc(uid);
+  Future<void> addTask(Task task) async {
+    DocumentReference tasks = _firestore.collection('Tasks').doc();
 
     return await tasks
         .set(task.toJson())

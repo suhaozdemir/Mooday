@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mooday/models/todo/task.dart';
 import 'package:provider/provider.dart';
 import 'package:mooday/models/todo/task_data.dart';
 
@@ -41,8 +42,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             ),
             TextButton(
               onPressed: () {
-                Provider.of<TaskData>(context, listen: false)
-                    .addTask(newTaskTitle.text);
+                addTask();
                 Navigator.pop(context);
               },
               child: Text('Add'),
@@ -56,5 +56,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
         ),
       ),
     );
+  }
+
+  void addTask() {
+    final task = Task(name: newTaskTitle.text);
+    Provider.of<TaskData>(context, listen: false).addTask(task);
   }
 }
