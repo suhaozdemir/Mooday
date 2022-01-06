@@ -9,7 +9,7 @@ class Task {
   }
 
   static Task fromJson(Map<String, dynamic> json) => Task(
-        name: json['title'],
+        name: json['name'],
         isDone: json['isDone'],
       );
 

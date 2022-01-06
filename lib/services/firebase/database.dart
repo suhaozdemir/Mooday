@@ -21,4 +21,16 @@ class DatabaseService {
         .then((value) => print('Task Added'))
         .catchError((error) => ('Task Error'));
   }
+
+  Stream<List<Task>> readTasks() {
+    Stream<QuerySnapshot<Object?>> querySnapshot =
+        _firestore.collection('Tasks').snapshots();
+
+    Stream<List<Task>> task = querySnapshot.map((document) {
+      return document.docs.map((e) {
+        return Task.fromJson(e.data() as Map<String, dynamic>);
+      }).toList();
+    });
+    return task;
+  }
 }
