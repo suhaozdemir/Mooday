@@ -5,13 +5,9 @@ import 'package:mooday/services/firebase/database.dart';
 import 'dart:collection';
 
 class TaskData extends ChangeNotifier {
-  final List<Task> _tasks = [
-    Task(name: 'Example Task'),
-  ];
+  final List<Task> _tasks = [];
 
   UnmodifiableListView<Task> get tasks => UnmodifiableListView(_tasks);
-
-  int get tasksLength => _tasks.length;
 
   void toggleTask(Task task) {
     task.toggleDone();

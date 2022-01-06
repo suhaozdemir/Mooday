@@ -59,7 +59,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   }
 
   void addTask() {
-    final task = Task(name: newTaskTitle.text);
+    final task = Task(date: DateTime.now(), name: newTaskTitle.text);
     Provider.of<TaskData>(context, listen: false).addTask(task);
   }
 }
