@@ -10,14 +10,11 @@ class TaskData extends ChangeNotifier {
   UnmodifiableListView<Task> get tasks => UnmodifiableListView(_tasks);
 
   void toggleTask(Task task) {
-    task.toggleDone();
-    notifyListeners();
+    task.isDone = !task.isDone;
+    DatabaseService().updateTask(task);
   }
 
   void addTask(Task task) => DatabaseService().addTask(task);
 
-  void removeTask(Task task) {
-    _tasks.remove(task);
-    notifyListeners();
-  }
+  void removeTask(Task task) => DatabaseService().deleteTask(task);
 }

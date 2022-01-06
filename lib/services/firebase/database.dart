@@ -21,7 +21,7 @@ class DatabaseService {
         .doc(_auth.currentUser?.uid)
         .collection('userTasks')
         .doc();
-
+    task.id = tasks.id;
     return await tasks
         .set(task.toJson())
         .then((value) => print('Task Added'))
@@ -42,5 +42,28 @@ class DatabaseService {
       }).toList();
     });
     return task;
+  }
+
+  Future<void> updateTask(Task task) async {
+    DocumentReference tasks = _firestore
+        .collection('Tasks')
+        .doc(_auth.currentUser?.uid)
+        .collection('userTasks')
+        .doc(task.id);
+
+    return await tasks.update(task.toJson());
+  }
+
+  Future<void> deleteTask(Task task) {
+    DocumentReference tasks = _firestore
+        .collection('Tasks')
+        .doc(_auth.currentUser?.uid)
+        .collection('userTasks')
+        .doc(task.id);
+
+    return tasks
+        .delete()
+        .then((value) => print('Task Deleted'))
+        .catchError((error) => ('Task Error'));
   }
 }
