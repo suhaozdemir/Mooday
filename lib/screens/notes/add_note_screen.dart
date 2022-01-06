@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mooday/models/notes/note.dart';
 import 'package:mooday/models/notes/note_data.dart';
 import 'package:provider/provider.dart';
 import 'package:mooday/assets/constants.dart';
@@ -43,8 +44,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
             TextButton(
                 onPressed: () {
                   if (newNoteTitle.text.isNotEmpty) {
-                    Provider.of<NoteData>(context, listen: false)
-                        .addNote(newNoteTitle.text, newNoteDesc.text);
+                    addNote();
                     Navigator.pop(context);
                     newNoteTitle.clear();
                     newNoteDesc.clear();
@@ -61,5 +61,14 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
         ),
       ),
     );
+  }
+
+  void addNote() {
+    final note = Note(
+        id: DateTime.now().toString(),
+        date: DateTime.now(),
+        title: newNoteTitle.text,
+        description: newNoteDesc.text);
+    Provider.of<NoteData>(context, listen: false).addNote(note);
   }
 }

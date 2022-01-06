@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mooday/models/notes/note.dart';
 import 'package:mooday/models/todo/task.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -65,5 +66,34 @@ class DatabaseService {
         .delete()
         .then((value) => print('Task Deleted'))
         .catchError((error) => ('Task Error'));
+  }
+
+  Future<void> addNote(Note note) async {
+    DocumentReference notes = _firestore
+        .collection('Notes')
+        .doc(_auth.currentUser?.uid)
+        .collection('userNotes')
+        .doc();
+    note.id = notes.id;
+    return await notes
+        .set(note.toJson())
+        .then((value) => print('Note Added'))
+        .catchError((error) => ('Note Error'));
+  }
+
+  Stream<List<Note>> readNotes() {
+    Stream<QuerySnapshot<Object?>> querySnapshot = _firestore
+        .collection('Notes')
+        .doc(_auth.currentUser?.uid)
+        .collection('userNotes')
+        .orderBy('date')
+        .snapshots();
+
+    Stream<List<Note>> note = querySnapshot.map((document) {
+      return document.docs.map((e) {
+        return Note.fromJson(e.data() as Map<String, dynamic>);
+      }).toList();
+    });
+    return note;
   }
 }
