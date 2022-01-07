@@ -14,7 +14,7 @@ class Mood {
   final String icon;
   final String date;
   final String hour;
-  final String id;
+  String id;
   final DateTime time;
 
   static Mood fromJson(Map<String, dynamic> json) => Mood(

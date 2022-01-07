@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mooday/models/notes/note.dart';
 import 'package:mooday/models/todo/task.dart';
+import 'package:mooday/models/mood/mood.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class DatabaseService {
@@ -105,5 +106,18 @@ class DatabaseService {
         .doc(note.id);
 
     return await notes.delete();
+  }
+
+  Future<void> addMood(Mood mood) async {
+    DocumentReference moods = _firestore
+        .collection('Moods')
+        .doc(_auth.currentUser?.uid)
+        .collection('userMoods')
+        .doc();
+    mood.id = moods.id;
+
+    return await moods
+        .set(mood.toJson())
+        .then((completed) => print('Mood Added'));
   }
 }

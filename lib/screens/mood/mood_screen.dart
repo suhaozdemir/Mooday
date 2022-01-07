@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mooday/models/mood/mood.dart';
+import 'package:mooday/models/mood/mood_data.dart';
 import 'package:mooday/screens/mood/localwidgets/mood_icons.dart';
 import 'package:mooday/screens/mood/localwidgets/datetime_picker.dart';
 import 'package:mooday/widgets/floating_button.dart';
 import 'package:mooday/assets/constants.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class MoodScreen extends StatefulWidget {
   @override
@@ -15,8 +16,6 @@ class MoodScreen extends StatefulWidget {
 class _MoodScreenState extends State<MoodScreen> {
   late DateTime pickedDate;
   late TimeOfDay pickedTime;
-  // final FirebaseAuth _auth = FirebaseAuth.instance;
-  // final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
   void initState() {
@@ -27,20 +26,6 @@ class _MoodScreenState extends State<MoodScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // CollectionReference moods = _firestore.collection('moods');
-    // Future<void> addMood() {
-    //   return moods
-    //       .doc(_auth.currentUser!.uid)
-    //       .set({
-    //         'sender': {
-    //           'date': DateFormat.yMMMd().format(pickedDate),
-    //           'time': pickedTime.format(context)
-    //         }
-    //       })
-    //       .then((value) => print("User Added"))
-    //       .catchError((error) => print("Failed to add user: $error"));
-    // }
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -75,25 +60,33 @@ class _MoodScreenState extends State<MoodScreen> {
                   title: 'Happy',
                   moodImg: 'assets/images/moods/mood.png',
                   onTap: () {
-                    //addMood();
+                    addMood('Happy', 'assets/images/moods/mood.png');
                   },
                 ),
                 MoodIcons(
                     title: 'Good',
                     moodImg: 'assets/images/moods/goodmood.png',
-                    onTap: () {}),
+                    onTap: () {
+                      addMood('Good', 'assets/images/moods/goodmood.png');
+                    }),
                 MoodIcons(
                     title: 'Neutral',
                     moodImg: 'assets/images/moods/neutralmood.png',
-                    onTap: () {}),
+                    onTap: () {
+                      addMood('Neutral', 'assets/images/moods/neutralmood.png');
+                    }),
                 MoodIcons(
                     title: 'Sad',
                     moodImg: 'assets/images/moods/sadmood.png',
-                    onTap: () {}),
+                    onTap: () {
+                      addMood('Sad', 'assets/images/moods/sadmood.png');
+                    }),
                 MoodIcons(
                     title: 'Bad',
                     moodImg: 'assets/images/moods/crymood.png',
-                    onTap: () {}),
+                    onTap: () {
+                      addMood('Bad', 'assets/images/moods/badmood.png');
+                    }),
               ],
             ),
           ],
@@ -132,5 +125,16 @@ class _MoodScreenState extends State<MoodScreen> {
         pickedTime = time;
       });
     }
+  }
+
+  void addMood(String title, String icon) {
+    final mood = Mood(
+        name: title,
+        icon: icon,
+        date: DateFormat.yMMMd().format(pickedDate),
+        hour: pickedTime.format(context),
+        id: DateTime.now().toString(),
+        time: DateTime.now());
+    Provider.of<MoodData>(context, listen: false).addMood(mood);
   }
 }

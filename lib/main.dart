@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
+import 'package:mooday/models/mood/mood_data.dart';
 import 'package:mooday/models/todo/task_data.dart';
 import 'services/router.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -18,12 +19,13 @@ class Mooday extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<TaskData>(create: (context) => TaskData()),
-        ChangeNotifierProvider<NoteData>(create: (context) => NoteData())
+        ChangeNotifierProvider<NoteData>(create: (context) => NoteData()),
+        ChangeNotifierProvider<MoodData>(create: (context) => MoodData())
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: AppRouter.generateRoute,
-        initialRoute: ROUTE_LANDING,
+        initialRoute: ROUTE_MOOD_TRACKER,
       ),
     );
   }
