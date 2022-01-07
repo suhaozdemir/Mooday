@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mooday/models/finance/load_finance_screen.dart';
+import 'package:mooday/screens/finance/load_finance_screen.dart';
 import 'package:mooday/screens/finance/finance_screen.dart';
 import 'package:mooday/screens/landing_screen.dart';
 import 'package:mooday/screens/landingafter_screen.dart';
