@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class StartChild extends StatelessWidget {
-  const StartChild({Key? key}) : super(key: key);
+  StartChild({required this.date});
+
+  final String date;
 
   @override
   Widget build(BuildContext context) {
@@ -9,8 +11,8 @@ class StartChild extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         alignment: const Alignment(0.0, -0.50),
-        child: const Text(
-          '04/01/2022',
+        child: Text(
+          date,
           style: TextStyle(fontFamily: 'Oswald', fontWeight: FontWeight.bold),
         ),
       ),

@@ -85,7 +85,7 @@ class _MoodScreenState extends State<MoodScreen> {
                     title: 'Bad',
                     moodImg: 'assets/images/moods/crymood.png',
                     onTap: () {
-                      addMood('Bad', 'assets/images/moods/badmood.png');
+                      addMood('Bad', 'assets/images/moods/crymood.png');
                     }),
               ],
             ),
