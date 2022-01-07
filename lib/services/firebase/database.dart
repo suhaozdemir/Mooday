@@ -120,4 +120,20 @@ class DatabaseService {
         .set(mood.toJson())
         .then((completed) => print('Mood Added'));
   }
+
+  Stream<List<Mood>> readMoods() {
+    Stream<QuerySnapshot<Object?>> querySnapshot = _firestore
+        .collection('Moods')
+        .doc(_auth.currentUser?.uid)
+        .collection('userMoods')
+        .orderBy('date')
+        .snapshots();
+
+    Stream<List<Mood>> mood = querySnapshot.map((document) {
+      return document.docs.map((e) {
+        return Mood.fromJson(e.data() as Map<String, dynamic>);
+      }).toList();
+    });
+    return mood;
+  }
 }
