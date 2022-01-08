@@ -131,10 +131,12 @@ class _MoodScreenState extends State<MoodScreen> {
     final mood = Mood(
         name: title,
         icon: icon,
-        date: DateFormat.yMMMd().format(pickedDate),
+        date: DateFormat.yMMMd().format(pickedDate) +
+            " " +
+            pickedTime.format(context),
         hour: pickedTime.format(context),
         id: DateTime.now().toString(),
-        time: DateTime.now());
+        time: pickedDate);
     Provider.of<MoodData>(context, listen: false).addMood(mood);
   }
 }
