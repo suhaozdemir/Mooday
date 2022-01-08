@@ -126,7 +126,7 @@ class DatabaseService {
         .collection('Moods')
         .doc(_auth.currentUser?.uid)
         .collection('userMoods')
-        .orderBy('date', descending: true)
+        .orderBy('fulltime', descending: true)
         .snapshots();
 
     Stream<List<Mood>> mood = querySnapshot.map((document) {

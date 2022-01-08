@@ -1,5 +1,3 @@
-import 'package:mooday/assets/utils.dart';
-
 class Mood {
   Mood({
     required this.name,
@@ -7,7 +5,7 @@ class Mood {
     required this.date,
     required this.hour,
     required this.id,
-    required this.time,
+    required this.fulltime,
   });
 
   final String name;
@@ -15,7 +13,7 @@ class Mood {
   final String date;
   final String hour;
   String id;
-  final DateTime time;
+  final String fulltime;
 
   static Mood fromJson(Map<String, dynamic> json) => Mood(
         id: json['id'],
@@ -23,7 +21,7 @@ class Mood {
         icon: json['icon'],
         date: json['date'],
         hour: json['hour'],
-        time: Utils.toDateTime(json['time']),
+        fulltime: json['fulltime'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -32,6 +30,6 @@ class Mood {
         'icon': icon,
         'date': date,
         'hour': hour,
-        'time': Utils.fromDateTimeToJson(time)
+        'fulltime': fulltime,
       };
 }

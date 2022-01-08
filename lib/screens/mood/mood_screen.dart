@@ -107,7 +107,7 @@ class _MoodScreenState extends State<MoodScreen> {
         context: context,
         initialDate: pickedDate,
         firstDate: DateTime(DateTime.now().year - 1),
-        lastDate: DateTime.now());
+        lastDate: DateTime(DateTime.now().year + 1));
 
     if (date != null) {
       setState(() {
@@ -131,12 +131,12 @@ class _MoodScreenState extends State<MoodScreen> {
     final mood = Mood(
         name: title,
         icon: icon,
-        date: DateFormat.yMMMd().format(pickedDate) +
-            " " +
-            pickedTime.format(context),
+        date: DateFormat.yMMMd().format(pickedDate),
         hour: pickedTime.format(context),
         id: DateTime.now().toString(),
-        time: pickedDate);
+        fulltime: DateFormat("yyyy-MM-dd").format(pickedDate) +
+            " " +
+            ('${pickedTime.hour} : ${pickedTime.minute}'));
     Provider.of<MoodData>(context, listen: false).addMood(mood);
   }
 }
