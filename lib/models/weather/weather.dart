@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:mooday/services/weather/location.dart';
-import 'package:mooday/services/network.dart';
+import 'package:mooday/services/networking/network.dart';
 import 'package:mooday/assets/constants.dart';
 
 class Weather {
