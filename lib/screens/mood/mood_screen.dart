@@ -136,8 +136,8 @@ class _MoodScreenState extends State<MoodScreen> {
         hour: pickedTime.format(context),
         id: DateTime.now().toString(),
         fulltime: DateFormat("yyyy-MM-dd").format(pickedDate) +
-            " " +
-            ('${pickedTime.hour} : ${pickedTime.minute}'));
+            " | " +
+            ('${pickedTime.hour} : ${pickedTime.minute} | ${DateTime.now()}'));
     Provider.of<MoodData>(context, listen: false).addMood(mood);
     DatabaseService().addLog('ADDED MOOD: [${title}]');
   }

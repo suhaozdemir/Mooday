@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
+import 'package:mooday/services/firebase/auth.dart';
 import 'package:mooday/widgets/category_card.dart';
+import 'package:mooday/widgets/round_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -27,17 +29,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: AssetImage('assets/images/homebg.png'),
               ),
             ),
-            child: const Center(
-              child: Text(
-                TEXT_TITLE,
-                style: STYLE_TITLE,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  TEXT_TITLE,
+                  style: STYLE_TITLE,
+                ),
+              ],
             ),
           ),
           SafeArea(
             child: Padding(
               padding: EdgeInsets.only(
-                  top: size.height * 0.15,
+                  top: size.height * 0.12,
                   left: 20.0,
                   right: 20.0,
                   bottom: 0.0),
