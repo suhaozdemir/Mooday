@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mooday/models/todo/task.dart';
+import 'package:mooday/services/firebase/database.dart';
 import 'package:provider/provider.dart';
 import 'package:mooday/models/todo/task_data.dart';
 
@@ -64,5 +65,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
         date: DateTime.now(),
         name: newTaskTitle.text);
     Provider.of<TaskData>(context, listen: false).addTask(task);
+    DatabaseService().addLog('ADDED TASK: ${newTaskTitle.text}');
   }
 }

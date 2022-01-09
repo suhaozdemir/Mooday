@@ -113,7 +113,7 @@ class _MoodScreenState extends State<MoodScreen> {
         context: context,
         initialDate: pickedDate,
         firstDate: DateTime(DateTime.now().year - 1),
-        lastDate: DateTime(DateTime.now().year + 1));
+        lastDate: DateTime.now());
 
     if (date != null) {
       setState(() {

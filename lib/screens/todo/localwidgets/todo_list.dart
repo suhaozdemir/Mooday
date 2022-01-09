@@ -28,9 +28,13 @@ class TodoList extends StatelessWidget {
                       isChecked: task[index].isDone,
                       checkboxCallback: (checkboxCallback) {
                         taskData.toggleTask(task[index]);
+                        DatabaseService()
+                            .addLog('UPDATED TASK: "${task[index].name}"');
                       },
                       longPressCallback: () {
                         taskData.removeTask(task[index]);
+                        DatabaseService()
+                            .addLog('DELETED TASK: "${task[index].name}"');
                       },
                     );
                   },
