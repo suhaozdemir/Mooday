@@ -30,6 +30,8 @@ class NoteList extends StatelessWidget {
                       noteDesc: note[index].description,
                       onPressed: () {
                         noteData.deleteNote(note[index]);
+                        DatabaseService()
+                            .addLog('DELETED NOTE: [${note[index].title}]');
                       },
                     );
                   },

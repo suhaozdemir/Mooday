@@ -62,7 +62,6 @@ class _MoodScreenState extends State<MoodScreen> {
                   moodImg: 'assets/images/moods/mood.png',
                   onTap: () {
                     addMood('Happy', 'assets/images/moods/mood.png');
-                    DatabaseService().addLog('User added mood: Happy');
                   },
                 ),
                 MoodIcons(
@@ -70,28 +69,24 @@ class _MoodScreenState extends State<MoodScreen> {
                     moodImg: 'assets/images/moods/goodmood.png',
                     onTap: () {
                       addMood('Good', 'assets/images/moods/goodmood.png');
-                      DatabaseService().addLog('User added mood: Good');
                     }),
                 MoodIcons(
                     title: 'Neutral',
                     moodImg: 'assets/images/moods/neutralmood.png',
                     onTap: () {
                       addMood('Neutral', 'assets/images/moods/neutralmood.png');
-                      DatabaseService().addLog('User added mood: Neutral');
                     }),
                 MoodIcons(
                     title: 'Sad',
                     moodImg: 'assets/images/moods/sadmood.png',
                     onTap: () {
                       addMood('Sad', 'assets/images/moods/sadmood.png');
-                      DatabaseService().addLog('User added mood: Sad');
                     }),
                 MoodIcons(
                     title: 'Bad',
                     moodImg: 'assets/images/moods/crymood.png',
                     onTap: () {
                       addMood('Bad', 'assets/images/moods/crymood.png');
-                      DatabaseService().addLog('User added mood: Bad');
                     }),
               ],
             ),
@@ -144,5 +139,6 @@ class _MoodScreenState extends State<MoodScreen> {
             " " +
             ('${pickedTime.hour} : ${pickedTime.minute}'));
     Provider.of<MoodData>(context, listen: false).addMood(mood);
+    DatabaseService().addLog('ADDED MOOD: [${title}]');
   }
 }

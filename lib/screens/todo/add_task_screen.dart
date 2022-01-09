@@ -65,6 +65,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
         date: DateTime.now(),
         name: newTaskTitle.text);
     Provider.of<TaskData>(context, listen: false).addTask(task);
-    DatabaseService().addLog('ADDED TASK: ${newTaskTitle.text}');
+    DatabaseService().addLog('ADDED TASK: [${newTaskTitle.text}]');
   }
 }
