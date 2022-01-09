@@ -136,4 +136,16 @@ class DatabaseService {
     });
     return mood;
   }
+
+  Future<void> addLog(String log) async {
+    CollectionReference logs = _firestore
+        .collection('Logs')
+        .doc(_auth.currentUser?.uid)
+        .collection('userLogs');
+
+    return await logs
+        .add({'message': log, 'time': DateTime.now()})
+        .then((value) => print('Added'))
+        .catchError((error) => print('Error'));
+  }
 }
