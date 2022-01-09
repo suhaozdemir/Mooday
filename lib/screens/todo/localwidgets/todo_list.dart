@@ -20,6 +20,9 @@ class TodoList extends StatelessWidget {
               return Center(child: Text('Error: ${snapshot.error}'));
             } else {
               final List<Task> task = snapshot.data;
+              if (task.length == 0) {
+                return Center(child: Text('There is not any data'));
+              }
               return Consumer<TaskData>(builder: (context, taskData, child) {
                 return ListView.builder(
                   itemBuilder: (context, index) {
