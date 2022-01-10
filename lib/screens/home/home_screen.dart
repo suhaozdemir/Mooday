@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/services/firebase/auth.dart';
 import 'package:mooday/widgets/category_card.dart';
-import 'package:mooday/widgets/round_button.dart';
+import 'package:mooday/widgets/logout_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Stack(
         children: [
           Container(
-            height: size.height * .27, //%27 boyut
+            height: size.height * .27,
             decoration: const BoxDecoration(
               color: Colors.white,
               image: DecorationImage(
@@ -32,10 +32,25 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Spacer(
+                  flex: 2,
+                ),
                 Text(
                   TEXT_TITLE,
                   style: STYLE_TITLE,
                 ),
+                Spacer(),
+                LogoutButton(onPressed: () async {
+                  try {
+                    await AuthService().logout();
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SNACKBAR_LSUCCESS);
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, ROUTE_LANDING);
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(SNACKBAR_LERROR);
+                  }
+                }),
               ],
             ),
           ),

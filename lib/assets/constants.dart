@@ -84,8 +84,14 @@ const DECORATION_TEXT_FILE_3 = InputDecoration(
 // SNACKBAR MESSAGES
 const SNACKBAR_SUCCESS = SnackBar(content: Text('Login Successfull!'));
 const SNACKBAR_RSUCCESS = SnackBar(content: Text('Register Successfull!'));
+const SNACKBAR_LSUCCESS = SnackBar(content: Text('Logout Successfull!'));
 const SNACKBAR_ERROR = SnackBar(
   content: Text('Invalid email or password!'),
+  backgroundColor: Colors.red,
+);
+const SNACKBAR_LERROR = SnackBar(
+  content: Text(
+      'An error occurred during the logout process. Please try again later.'),
   backgroundColor: Colors.red,
 );
 
