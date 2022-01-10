@@ -1,3 +1,4 @@
+import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:mooday/models/mood/mood.dart';
 import 'package:mooday/models/mood/mood_data.dart';
@@ -93,12 +94,25 @@ class _MoodScreenState extends State<MoodScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingButton(
-        scale: 1.2,
-        title: 'Back',
-        onPressed: () {
-          Navigator.pop(context);
-        },
+      floatingActionButton: CircularMenu(
+        alignment: Alignment.bottomRight,
+        toggleButtonColor: Colors.black,
+        items: [
+          CircularMenuItem(
+              color: Colors.white,
+              iconColor: Colors.black,
+              icon: Icons.arrow_back,
+              onTap: () {
+                Navigator.pop(context);
+              }),
+          CircularMenuItem(
+              color: Colors.white,
+              iconColor: Colors.black,
+              icon: Icons.timeline,
+              onTap: () {
+                Navigator.pushNamed(context, ROUTE_MOOD_TRACKER);
+              })
+        ],
       ),
     );
   }

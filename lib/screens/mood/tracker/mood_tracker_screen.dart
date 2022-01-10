@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mooday/assets/constants.dart';
 import 'package:mooday/models/mood/mood.dart';
 import 'package:mooday/models/mood/mood_data.dart';
 import 'package:mooday/screens/mood/localwidgets/tracker/end_child.dart';
@@ -29,6 +31,24 @@ class MoodTrackerScreen extends StatelessWidget {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else {
                     final List<Mood> moods = snapshot.data;
+                    if (moods.isEmpty == true) {
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'WHOOPS!',
+                            style: STYLE_TITLE,
+                          ),
+                          Text(
+                            'You forgot adding Mood.',
+                            style: STYLE_TITLE.copyWith(fontSize: 25),
+                          ),
+                          Image.asset(
+                            'assets/images/empty/empty_time.png',
+                          ),
+                        ],
+                      );
+                    }
                     return Consumer<MoodData>(
                         builder: (context, MoodData, child) {
                       return ListView.builder(
