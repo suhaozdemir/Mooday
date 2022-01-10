@@ -32,14 +32,12 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Spacer(
-                  flex: 2,
-                ),
-                Text(
+                const Spacer(flex: 2),
+                const Text(
                   TEXT_TITLE,
                   style: STYLE_TITLE,
                 ),
-                Spacer(),
+                const Spacer(),
                 LogoutButton(onPressed: () async {
                   try {
                     await AuthService().logout();

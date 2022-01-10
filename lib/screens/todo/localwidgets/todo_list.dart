@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mooday/assets/constants.dart';
 import 'package:mooday/services/firebase/database.dart';
 import 'todo_tile.dart';
 import 'package:mooday/models/todo/task.dart';
@@ -21,7 +22,18 @@ class TodoList extends StatelessWidget {
             } else {
               final List<Task> task = snapshot.data;
               if (task.length == 0) {
-                return Center(child: Text('There is not any data'));
+                return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'All tasks are completed!',
+                        style: STYLE_TITLE.copyWith(fontSize: 20),
+                      ),
+                      Image.asset(
+                        'assets/images/empty/todo_empty.png',
+                        scale: 1,
+                      ),
+                    ]);
               }
               return Consumer<TaskData>(builder: (context, taskData, child) {
                 return ListView.builder(
