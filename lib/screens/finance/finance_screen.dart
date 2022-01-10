@@ -137,8 +137,12 @@ class _FinanceScreenState extends State<FinanceScreen> {
           ],
         ),
       ),
-      floatingActionButton:
-          FloatingButton(scale: 1.2, title: 'Back', onPressed: () {}),
+      floatingActionButton: FloatingButton(
+          scale: 1.2,
+          title: 'Back',
+          onPressed: () {
+            Navigator.pushNamed(context, ROUTE_HOME);
+          }),
     );
   }
 }

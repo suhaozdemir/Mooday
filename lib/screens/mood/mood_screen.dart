@@ -118,8 +118,10 @@ class _MoodScreenState extends State<MoodScreen> {
   }
 
   _pickTime() async {
-    TimeOfDay? time =
-        await showTimePicker(context: context, initialTime: pickedTime);
+    TimeOfDay? time = await showTimePicker(
+      context: context,
+      initialTime: pickedTime,
+    );
 
     if (time != null) {
       setState(() {
@@ -137,7 +139,7 @@ class _MoodScreenState extends State<MoodScreen> {
         id: DateTime.now().toString(),
         fulltime: DateFormat("yyyy-MM-dd").format(pickedDate) +
             " | " +
-            ('${pickedTime.hour} : ${pickedTime.minute} | ${DateTime.now()}'));
+            ('${pickedTime} | ${DateTime.now()}'));
     Provider.of<MoodData>(context, listen: false).addMood(mood);
     DatabaseService().addLog('ADDED MOOD: [${title}]');
   }
