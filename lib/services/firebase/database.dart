@@ -137,6 +137,19 @@ class DatabaseService {
     return mood;
   }
 
+  Future<void> deleteMood(Mood mood) {
+    DocumentReference moods = _firestore
+        .collection('Moods')
+        .doc(_auth.currentUser?.uid)
+        .collection('userMoods')
+        .doc(mood.id);
+
+    return moods
+        .delete()
+        .then((value) => print('Mood Deleted'))
+        .catchError((error) => ('Mood Error'));
+  }
+
   Future<void> addLog(String log) async {
     CollectionReference logs = _firestore
         .collection('Logs')

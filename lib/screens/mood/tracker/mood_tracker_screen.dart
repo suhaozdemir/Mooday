@@ -35,7 +35,7 @@ class MoodTrackerScreen extends StatelessWidget {
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             'WHOOPS!',
                             style: STYLE_TITLE,
                           ),
@@ -71,6 +71,11 @@ class MoodTrackerScreen extends StatelessWidget {
                                 moodName: moods[index].name,
                                 moodHour: moods[index].hour,
                                 moodIcon: moods[index].icon,
+                                longPressCallback: () {
+                                  DatabaseService().deleteMood(moods[index]);
+                                  DatabaseService().addLog(
+                                      'DELETED MOOD: [${moods[index].name}]');
+                                },
                               ));
                         },
                         itemCount: moods.length,
