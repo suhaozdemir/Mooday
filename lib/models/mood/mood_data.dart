@@ -4,4 +4,5 @@ import 'mood.dart';
 
 class MoodData extends ChangeNotifier {
   void addMood(Mood mood) => DatabaseService().addMood(mood);
+  void deleteMood(Mood mood) => DatabaseService().deleteMood(mood);
 }

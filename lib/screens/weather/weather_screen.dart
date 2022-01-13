@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mooday/assets/constants.dart';
 import 'package:mooday/models/weather/weather.dart';
+import 'package:mooday/widgets/floating_button.dart';
 
 class WeatherScreen extends StatefulWidget {
   WeatherScreen({this.locationWeather});
@@ -113,6 +114,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
           ],
         ),
       ),
+      floatingActionButton: FloatingButton(
+          scale: 1.2,
+          title: 'Back',
+          onPressed: () {
+            Navigator.pushNamed(context, ROUTE_HOME);
+          }),
     );
   }
 }

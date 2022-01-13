@@ -72,7 +72,7 @@ class MoodTrackerScreen extends StatelessWidget {
                                 moodHour: moods[index].hour,
                                 moodIcon: moods[index].icon,
                                 longPressCallback: () {
-                                  DatabaseService().deleteMood(moods[index]);
+                                  MoodData.deleteMood(moods[index]);
                                   DatabaseService().addLog(
                                       'DELETED MOOD: [${moods[index].name}]');
                                 },
