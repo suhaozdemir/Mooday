@@ -24,12 +24,11 @@ dependencies:
   firebase_core: ^1.10.0
   firebase_auth: ^3.2.0
   cloud_firestore: ^3.1.0
-  provider: ^5.0.0
 
   #services
   location: ^4.3.0
   http: ^0.13.4
-
+  provider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -53,11 +52,4 @@ flutter:
      - family: Oswald
        fonts:
          - asset: assets/fonts/Oswald-Bold.ttf
-     - family: ComingSoon
-       fonts:
-         - asset: assets/fonts/ComingSoon-Regular.ttf
-     - family: Quantico
-       fonts:
-         - asset: assets/fonts/Quantico-Bold.ttf
-         - asset: assets/fonts/Quantico-Regular.ttf
 
